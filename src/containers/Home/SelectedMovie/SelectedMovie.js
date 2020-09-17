@@ -86,6 +86,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  ratingText: {
+    margin: '0 0 0 8px',
+  },
 }));
 
 function SelectedMovie(props) {
@@ -201,7 +204,11 @@ function SelectedMovie(props) {
           )}
           <div className={classes.ratingsContainer}>
             <Box component="div" className={classes.ratingContainer}>
-              <Typography variant="h5" color="textSecondary">
+              <Typography
+                variant="h5"
+                color="textSecondary"
+                className={classes.ratingText}
+              >
                 AUDIENCE RATING:
               </Typography>
               <Rating
@@ -216,7 +223,11 @@ function SelectedMovie(props) {
               />
             </Box>
             <Box component="div" className={classes.ratingContainer}>
-              <Typography variant="h5" color="textSecondary">
+              <Typography
+                variant="h5"
+                color="textSecondary"
+                className={classes.ratingText}
+              >
                 YOUR RATING:{' '}
               </Typography>
               <Rating

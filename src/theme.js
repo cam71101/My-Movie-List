@@ -55,6 +55,4 @@ theme.typography.h5 = {
   },
 };
 
-theme.spacing(40);
-
 export default theme;

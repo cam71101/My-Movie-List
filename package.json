@@ -2,7 +2,7 @@
   "name": "my-movie-list",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://cam71101.github.io/The-Movie-List",
+  "homepage": "http://cam71101.github.io/My-Movie-List",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",

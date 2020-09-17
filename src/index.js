@@ -14,11 +14,7 @@ import authReducer from './store/reducers/auth';
 import moviesReducer from './store/reducers/movies';
 import { createMuiTheme } from '@material-ui/core/styles';
 
-const composeEnhancers = composeWithDevTools({
-  actionTypes,
-  trace: true,
-  traceLimit: 25,
-});
+const composeEnhancers = composeWithDevTools({});
 
 const rootReducer = combineReducers({
   movies: moviesReducer,
