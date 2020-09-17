@@ -2,19 +2,38 @@
   "name": "my-movie-list",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://cam71101.github.io/The-Movie-List",
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.56",
+    "@reduxjs/toolkit": "^1.4.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "@types/react-transition-group": "^4.4.0",
+    "axios": "^0.20.0",
+    "cross-fetch": "^3.0.5",
+    "fontsource-roboto": "^3.0.3",
+    "gh-pages": "^3.1.0",
+    "material-ui-search-bar": "^1.0.0",
     "react": "^16.13.1",
+    "react-autosuggest": "^10.0.2",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.3",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "save-dev": "0.0.1-security"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

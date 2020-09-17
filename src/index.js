@@ -2,16 +2,54 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import theme from './theme';
 import * as serviceWorker from './serviceWorker';
+import { ThemeProvider } from '@material-ui/core';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import * as actionTypes from './store/actions/actionTypes';
+import ReduxThunk from 'redux-thunk';
+import authReducer from './store/reducers/auth';
+import moviesReducer from './store/reducers/movies';
+import { createMuiTheme } from '@material-ui/core/styles';
+
+const composeEnhancers = composeWithDevTools({
+  actionTypes,
+  trace: true,
+  traceLimit: 25,
+});
+
+const rootReducer = combineReducers({
+  movies: moviesReducer,
+  auth: authReducer,
+});
+
+const logger = (store) => {
+  return (next) => {
+    return (action) => {
+      const result = next(action);
+      return result;
+    };
+  };
+};
+
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(logger, ReduxThunk))
+);
+
+const Theme = createMuiTheme();
+
+console.log(Theme);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
+  </Provider>,
   document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
