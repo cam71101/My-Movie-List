@@ -74,7 +74,7 @@ const SearchMoviesBar = (props) => {
     (async () => {
       try {
         const response = await fetch(
-          `https://api.themoviedb.org/3/search/movie?api_key=105094d957931ab7b01705c2f3d2dd58&query=${input}`
+          `https://cors-anywhere.herokuapp.com/http://api.themoviedb.org/3/search/movie?api_key=105094d957931ab7b01705c2f3d2dd58&query=${input}`
         );
         const movies = await response.json();
         movies.results.length = 2;
