@@ -35,8 +35,20 @@ const useStyles = makeStyles((theme) => ({
   img: {
     position: 'absolute',
     opacity: 0.2,
-    width: '160rem',
-    [theme.breakpoints.between('xs', 'sm')]: {
+    width: '150rem',
+    [theme.breakpoints.up('xl')]: {
+      width: '180rem',
+    },
+    [theme.breakpoints.down('l')]: {
+      width: '180rem',
+    },
+    [theme.breakpoints.down('md')]: {
+      width: '120rem',
+    },
+    [theme.breakpoints.down('sm')]: {
+      width: '100rem',
+    },
+    [theme.breakpoints.down('xs')]: {
       width: '90rem',
     },
   },
@@ -47,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     width: '45rem',
     zIndex: 100,
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.between('xs', 'sm')]: {
       width: '20rem',
     },
   },

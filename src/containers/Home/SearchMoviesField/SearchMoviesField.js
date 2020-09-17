@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import TextField from '@material-ui/core/TextField';
-import { fade, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import fetch from 'cross-fetch';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -12,23 +12,13 @@ const useStyles = makeStyles((theme) => ({
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    // backgroundColor: fade(theme.palette.common.white, 0.1),
-    // '&:hover': {
-    //   backgroundColor: fade(theme.palette.common.white, 0.25),
-    // },
-    // marginLeft: 0,
     width: '20rem',
     order: 2,
     [theme.breakpoints.down('xs')]: {
       order: 3,
-      width: '23rem',
+      width: '20rem',
       margin: 'auto',
     },
-    [theme.breakpoints.down('sm')]: {
-      margin: 'auto',
-    },
-    alignSelf: 'center',
-    // justifySelf: 'center',
   },
   searchIcon: {
     padding: theme.spacing(0, 2),
@@ -41,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-end',
     color: theme.palette.common.white,
     [theme.breakpoints.down('xs')]: {
-      right: 50,
+      right: 10,
     },
   },
   autoComplete: {

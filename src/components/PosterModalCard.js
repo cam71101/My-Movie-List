@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     width: '70rem',
     height: '40rem',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.between('sm', 'md')]: {
       height: '37rem',
       width: '45rem',
     },
@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
 
 const PosterModalCard = (props) => {
   const classes = useStyles();
-  const { movie, moviePoster, genres, checkMovieAdded } = props;
+  const { moviePoster, genres, checkMovieAdded } = props;
 
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('xs'));

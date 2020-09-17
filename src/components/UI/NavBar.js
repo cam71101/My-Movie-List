@@ -22,19 +22,18 @@ const useStyles = makeStyles((theme) => ({
     background:
       'linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%)',
     display: 'flex',
-    // justifyContent: 'center',
-    // position: 'fixed',
     boxShadow: '0px 0px',
-    height: '10rem',
+    height: '15rem',
+    flexDirection: 'row',
   },
   Toolbar: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     alignItems: 'center',
     opacity: 1,
     width: '100%',
-    background:
-      'linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%)',
+    height: '50%',
+    boxShadow: '0px 0px',
     flexWrap: 'wrap',
     [theme.breakpoints.down('xs')]: {
       height: '10rem',
@@ -48,18 +47,18 @@ const useStyles = makeStyles((theme) => ({
   signOut: {
     order: 3,
     width: '8rem',
-    marginRight: '3rem',
+    [theme.breakpoints.down('sm')]: {
+      width: '7rem',
+    },
     [theme.breakpoints.down('xs')]: {
       order: 1,
+      width: '7rem',
     },
   },
   logo: {
     marginTop: '-1rem',
     order: 1,
     width: '8rem',
-    [theme.breakpoints.down('md')]: {
-      width: '8rem',
-    },
     [theme.breakpoints.down('sm')]: {
       width: '7rem',
     },
