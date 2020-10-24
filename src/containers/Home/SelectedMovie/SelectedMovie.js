@@ -58,7 +58,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     flexDirection: 'column',
     width: '45rem',
-    zIndex: 100,
     [theme.breakpoints.between('xs', 'sm')]: {
       width: '20rem',
     },

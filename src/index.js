@@ -11,7 +11,6 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import ReduxThunk from 'redux-thunk';
 import authReducer from './store/reducers/auth';
 import moviesReducer from './store/reducers/movies';
-import { createMuiTheme } from '@material-ui/core/styles';
 
 const composeEnhancers = composeWithDevTools({});
 
@@ -33,8 +32,6 @@ const store = createStore(
   rootReducer,
   composeEnhancers(applyMiddleware(logger, ReduxThunk))
 );
-
-const Theme = createMuiTheme();
 
 ReactDOM.render(
   <Provider store={store}>
