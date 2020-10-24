@@ -44,6 +44,7 @@ function Home(props) {
     onAddToMovieList,
     searchedMovie,
     movies,
+    modal,
   } = props;
 
   const handleClose = () => {
@@ -105,7 +106,7 @@ function Home(props) {
           filterSelect={selectInput}
         />
         {searchedMovie ? (
-          <TransitionModal modal={props.modal} close={handleClose}>
+          <TransitionModal modal={modal} close={handleClose}>
             <PosterModalCard
               addMovie={handleAdd}
               moviePoster={moviePoster}

@@ -62,6 +62,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.between('xs', 'sm')]: {
       width: '20rem',
     },
+    zIndex: 1,
   },
   ratingsContainer: {
     display: 'flex',
@@ -139,7 +140,7 @@ function SelectedMovie(props) {
         >
           Start building your Movie List!
         </Typography>
-        <SearchMovieField />
+        <SearchMovieField className={classes.search} />
       </Box>
     </React.Fragment>
   );

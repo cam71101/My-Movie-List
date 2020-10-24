@@ -77,10 +77,12 @@ const MovieGrid = (props) => {
         });
       }
     } else if (props.filterSelect === 'watched') {
-      if (filterWatched === 'watched') {
-        filteredMovies = movies.filter((movie) => movie.watched === true);
-      } else {
-        filteredMovies = movies.filter((movie) => movie.watched === false);
+      if (filterWatched) {
+        if (filterWatched === 'watched') {
+          filteredMovies = movies.filter((movie) => movie.watched === true);
+        } else {
+          filteredMovies = movies.filter((movie) => movie.watched === false);
+        }
       }
     }
 

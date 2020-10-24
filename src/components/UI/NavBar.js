@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     backgroundColor: 'black',
+    zIndex: 2,
   },
   appBar: {
     background:
@@ -90,7 +91,7 @@ const ButtonAppBar = (props) => {
             <img className={classes.logo} src={logo} alt="Logo" />
             <Link to="/logout" className={classes.signOut}>
               <Button color="secondary" className={classes.signOut}>
-                <ExitToAppIcon fontSize={matches ? 'small' : 'medium'} /> Sign
+                <ExitToAppIcon fontSize={matches ? 'small' : undefined} /> Sign
                 out
               </Button>
             </Link>

@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
       width: '20rem',
       margin: 'auto',
     },
+    zIndex: 100,
   },
   searchIcon: {
     padding: theme.spacing(0, 2),
@@ -35,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   autoComplete: {
+    zIndex: 10,
     width: '20rem',
     [theme.breakpoints.down('xs')]: {
       margin: 'auto',

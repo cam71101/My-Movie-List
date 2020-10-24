@@ -129,7 +129,7 @@ const Auth = (props) => {
 
   let authRedirect = null;
   if (props.isAuthenticated) {
-    authRedirect = <Redirect to="/home" />;
+    authRedirect = <Redirect to="/My-Movie-List/home" />;
   }
 
   let errorMessage;

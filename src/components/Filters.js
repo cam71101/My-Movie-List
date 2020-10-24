@@ -97,6 +97,8 @@ const Filters = (props) => {
         </Select>
       </FormControl>
     );
+  } else {
+    filter = null;
   }
 
   return (
@@ -109,6 +111,9 @@ const Filters = (props) => {
           value={props.filterSelect}
           onChange={props.handleSelectChange}
         >
+          <MenuItem value={'none'} name="none">
+            None
+          </MenuItem>
           <MenuItem value={'title'} name="Title">
             Title
           </MenuItem>

@@ -8,7 +8,6 @@ import { ThemeProvider } from '@material-ui/core';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import * as actionTypes from './store/actions/actionTypes';
 import ReduxThunk from 'redux-thunk';
 import authReducer from './store/reducers/auth';
 import moviesReducer from './store/reducers/movies';
@@ -36,8 +35,6 @@ const store = createStore(
 );
 
 const Theme = createMuiTheme();
-
-console.log(Theme);
 
 ReactDOM.render(
   <Provider store={store}>
