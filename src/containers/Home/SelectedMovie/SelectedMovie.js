@@ -90,6 +90,9 @@ const useStyles = makeStyles((theme) => ({
   ratingText: {
     margin: '0 0 0 8px',
   },
+  title: {
+    textAlign: 'center',
+  },
 }));
 
 function SelectedMovie(props) {
@@ -170,7 +173,12 @@ function SelectedMovie(props) {
     background = (
       <React.Fragment>
         <Box component="div" className={classes.infoContainer}>
-          <Typography variant="h1" component="h2" color="secondary">
+          <Typography
+            variant="h1"
+            component="h2"
+            color="secondary"
+            className={classes.title}
+          >
             {movie.title}
           </Typography>
 
