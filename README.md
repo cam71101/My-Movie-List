@@ -4,7 +4,7 @@ My Movie List
 
 ## Deployment
 
-https://cam71101.github.io/my-movie-list
+https://cam71101.github.io/My-Movie-List/
 
 ## Screenshot
 
