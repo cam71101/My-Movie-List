@@ -29,7 +29,7 @@ function App(props) {
       <BrowserRouter>
         <Route path="/" exact component={Auth} />
         <Route
-          path="/My-Movie-List/home"
+          path="/My-Movie-List"
           render={() => (
             <Suspense fallback={<div>loading...</div>}>
               <Home />
