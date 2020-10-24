@@ -25,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: '0px 0px',
     height: '15rem',
     flexDirection: 'row',
+    [theme.breakpoints.down('xs')]: {
+      position: 'absolute',
+    },
   },
   Toolbar: {
     display: 'flex',

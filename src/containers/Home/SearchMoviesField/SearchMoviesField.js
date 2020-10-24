@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-end',
     color: theme.palette.common.white,
     [theme.breakpoints.down('xs')]: {
-      right: 10,
+      right: 20,
     },
   },
   autoComplete: {
