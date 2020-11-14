@@ -21,15 +21,21 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       height: '37rem',
       width: '20rem',
+      flexDirection: 'column',
+      justifyContent: 'flex-end',
+      position: 'relative',
+      overflow: 'hidden',
     },
   },
   details: {
     display: 'flex',
+    zIndex: 1,
   },
   content: {
     display: 'flex',
     flexDirection: 'column',
     flex: '5',
+    zIndex: 1,
   },
   cover: {
     flex: '1 0 40%',
@@ -37,23 +43,31 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     [theme.breakpoints.down('xs')]: {
-      flex: '1 0 20%',
+      zIndex: 0,
+      opacity: 0.1,
+      position: 'absolute',
+      width: '25rem',
+      objectFit: 'cover',
     },
   },
   tagline: {
     flex: '3 3 90%',
+    zIndex: 1,
   },
   ratingsContainer: {
     display: 'flex',
+    zIndex: 1,
   },
   bottomContainer: {
     display: 'flex',
     justifyContent: 'space-between',
     flexWrap: 'wrap',
     alignItems: 'center',
+    zIndex: 1,
   },
   button: {
     marginTop: '1rem',
+    zIndex: 1,
   },
   title: {
     textTransform: 'uppercase',
@@ -61,12 +75,18 @@ const useStyles = makeStyles((theme) => ({
   rating: {
     paddingTop: '.5rem',
     marginLeft: '.3rem',
+    zIndex: 1,
   },
   genresList: {
     width: '50%',
+    [theme.breakpoints.down('xs')]: {
+      width: '100%',
+    },
+    zIndex: 1,
   },
   runTimeContainer: {
     alignSelf: 'flexend',
+    zIndex: 1,
   },
 }));
 
@@ -77,7 +97,7 @@ const PosterModalCard = (props) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('xs'));
 
-  let posterText;
+  let posterText = null;
   if (!moviePoster) {
     posterText = (
       <Typography variant="h5" color="textSecondary" gutterBottom={true}>
@@ -92,6 +112,15 @@ const PosterModalCard = (props) => {
 
   return (
     <Card className={classes.root}>
+      {matches ? (
+        <img
+          className={classes.cover}
+          src={moviePoster}
+          alt="No poster available"
+        />
+      ) : null}
+
+      {/* {posterText} */}
       <div className={classes.details}>
         <CardContent className={classes.content}>
           <div className={classes.tagline}>
@@ -160,25 +189,29 @@ const PosterModalCard = (props) => {
                 size="small"
               />
             </div>
+
             <Button
               variant="contained"
               color="secondary"
               onClick={props.addMovie}
               disabled={checkMovieAdded}
               className={classes.button}
+              size={matches ? 'small' : 'medium'}
             >
               add to list
             </Button>
           </div>
         </CardContent>
       </div>
-      <CardMedia
-        className={classes.cover}
-        image={moviePoster}
-        src="No poster available"
-      >
-        {posterText}
-      </CardMedia>
+      {!matches ? (
+        <CardMedia
+          className={classes.cover}
+          image={moviePoster}
+          src="No poster available"
+        >
+          {posterText}
+        </CardMedia>
+      ) : null}
     </Card>
   );
 };

@@ -22,7 +22,11 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     position: 'relative',
-    backgroundColor: 'theme.palette.background.paper',
+    backgroundColor: 'black',
+    [theme.breakpoints.down('xs')]: {
+      height: 'auto',
+      marginBottom: '5rem',
+    },
   },
   black: {
     width: '100%',
@@ -33,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     position: 'relative',
     backgroundColor: 'black',
+    [theme.breakpoints.down('xs')]: {
+      height: 'auto',
+    },
   },
   img: {
     position: 'absolute',
@@ -53,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down('xs')]: {
       width: '90rem',
+      transform: 'translateY(0)',
     },
     zIndex: 0,
   },
@@ -63,6 +71,11 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     width: '100%',
     zIndex: 1,
+    [theme.breakpoints.down('xs')]: {
+      height: '100%',
+      justifyContent: 'flex-start',
+      marginTop: '10rem',
+    },
   },
   ratingsContainer: {
     display: 'flex',
@@ -103,8 +116,10 @@ const useStyles = makeStyles((theme) => ({
     width: '50vw',
     height: '13rem',
     [theme.breakpoints.down('sm')]: {
-      height: '18rem',
       width: '80vw',
+      marginBottom: '3rem',
+      textAlign: 'center',
+      height: 'auto',
     },
   },
   btn: {
@@ -115,6 +130,12 @@ const useStyles = makeStyles((theme) => ({
   },
   search: {
     marginBottom: '8rem',
+  },
+  tagline: {
+    [theme.breakpoints.down('sm')]: {
+      textAlign: 'center',
+      width: '80vw',
+    },
   },
 }));
 
@@ -212,7 +233,12 @@ export function SelectedMovie(props) {
             {movie.title}
           </Typography>
 
-          <Typography variant="h4" color="textSecondary" gutterBottom={true}>
+          <Typography
+            variant="h4"
+            color="textSecondary"
+            gutterBottom={true}
+            className={classes.tagline}
+          >
             {movie.tagline}
           </Typography>
 
