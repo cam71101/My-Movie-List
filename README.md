@@ -4,7 +4,7 @@ My Movie List
 
 ## Deployment
 
-https://cam71101.github.io/weather-app/
+https://cam71101.github.io/My-Movie-List/
 
 ## Screenshot
 
