@@ -45,15 +45,28 @@ const useStyles = makeStyles((theme) => ({
   },
   ratingsContainer: {
     display: 'flex',
-    flexDirection: 'column',
   },
   bottomContainer: {
     display: 'flex',
     justifyContent: 'space-between',
     flexWrap: 'wrap',
+    alignItems: 'center',
   },
   button: {
     marginTop: '1rem',
+  },
+  title: {
+    textTransform: 'uppercase',
+  },
+  rating: {
+    paddingTop: '.5rem',
+    marginLeft: '.3rem',
+  },
+  genresList: {
+    width: '50%',
+  },
+  runTimeContainer: {
+    alignSelf: 'flexend',
   },
 }));
 
@@ -83,16 +96,16 @@ const PosterModalCard = (props) => {
         <CardContent className={classes.content}>
           <div className={classes.tagline}>
             <Typography
-              // component="h3"
               variant={matches ? 'h4' : 'h3'}
               gutterBottom={true}
               color="secondary"
+              className={classes.title}
             >
               {props.title}
             </Typography>
             <Typography
-              variant={matches ? 'h5' : 'h4'}
-              color="textPrimary"
+              variant={matches ? 'h5' : 'h5'}
+              color="textSecondary"
               gutterBottom={true}
             >
               {props.tagline}
@@ -105,41 +118,46 @@ const PosterModalCard = (props) => {
             >
               {props.overview}
             </Typography>
-
-            <Typography variant="h5" color="textSecondary" gutterBottom={true}>
-              {genresList}
-            </Typography>
-            <Typography
-              variant="h5"
-              color="textSecondary"
-              gutterBottom={true}
-              display="inline"
-            >
-              Runtime:
-            </Typography>
-            <Typography
-              variant="h5"
-              color="textPrimary"
-              gutterBottom={true}
-              display="inline"
-            >
-              &nbsp;&nbsp;{props.runTime} mins
-            </Typography>
           </div>
 
           <div className={classes.bottomContainer}>
+            <Typography
+              variant="h5"
+              color="textSecondary"
+              className={classes.genresList}
+            >
+              {genresList}
+            </Typography>
+            <div className={classes.runTimeContainer}>
+              <Typography
+                variant="h5"
+                color="textSecondary"
+                gutterBottom={true}
+                display="inline"
+              >
+                Runtime:
+              </Typography>
+              <Typography
+                variant="h5"
+                color="textPrimary"
+                gutterBottom={true}
+                display="inline"
+              >
+                &nbsp;&nbsp;{props.runTime} mins
+              </Typography>
+            </div>
             <div className={classes.ratingsContainer}>
-              <Typography variant={matches ? 'h5' : 'h4'} color="textSecondary">
+              <Typography variant={matches ? 'h5' : 'h5'} color="secondary">
                 Rating:
               </Typography>
               <Rating
-                className={classes.audienceStars}
+                className={classes.rating}
                 name="rating"
                 value={props.voteAverage}
                 precision={1}
                 max={10}
                 readOnly
-                size={matches ? 'xsall' : 'medium'}
+                size="small"
               />
             </div>
             <Button
@@ -147,7 +165,6 @@ const PosterModalCard = (props) => {
               color="secondary"
               onClick={props.addMovie}
               disabled={checkMovieAdded}
-              size="xsall"
               className={classes.button}
             >
               add to list

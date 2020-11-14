@@ -10,6 +10,8 @@ import SearchMovieField from '../SearchMoviesField/SearchMoviesField';
 import Fade from '@material-ui/core/Fade';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
+import { compose } from 'redux';
+import { removeMovie } from '../../../store/actions/movies';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     position: 'relative',
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: 'theme.palette.background.paper',
   },
   black: {
     width: '100%',
@@ -36,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     opacity: 0.2,
     width: '150rem',
+    transform: 'translateY(10vw)',
     [theme.breakpoints.up('xl')]: {
       width: '180rem',
     },
@@ -51,16 +54,14 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       width: '90rem',
     },
+    zIndex: 0,
   },
   infoContainer: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-    width: '45rem',
-    [theme.breakpoints.between('xs', 'sm')]: {
-      width: '20rem',
-    },
+    width: '100%',
     zIndex: 1,
   },
   ratingsContainer: {
@@ -91,10 +92,33 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     textAlign: 'center',
+    textTransform: 'uppercase',
+    width: '100%',
+    [theme.breakpoints.down('sm')]: {
+      width: '80vw',
+    },
+    zIndex: 1,
+  },
+  description: {
+    width: '50vw',
+    height: '13rem',
+    [theme.breakpoints.down('sm')]: {
+      height: '18rem',
+      width: '80vw',
+    },
+  },
+  btn: {
+    width: '50vw',
+    [theme.breakpoints.down('sm')]: {
+      width: '80vw',
+    },
+  },
+  search: {
+    marginBottom: '8rem',
   },
 }));
 
-function SelectedMovie(props) {
+export function SelectedMovie(props) {
   const [fade, setFade] = useState(true);
   const [movie, setMovie] = useState();
 
@@ -104,6 +128,7 @@ function SelectedMovie(props) {
     onUpdateStarRating,
     onUpdateWatched,
     movieChanged,
+    newMovie,
   } = props;
 
   const handleRating = async (e, rating) => {
@@ -123,15 +148,14 @@ function SelectedMovie(props) {
     onUpdateWatched(selectedMovie.key, duplicateSelectedMovie, props.token);
   };
 
-  let background = null;
-
-  background = (
+  let background = (
     <React.Fragment>
       <img
         src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
         className={classes.img}
         alt="backgro
         undImage"
+        style={{ opacity: 1 }}
       />
       <Box component="div" className={classes.startContainer}>
         <Typography
@@ -139,16 +163,19 @@ function SelectedMovie(props) {
           component="h2"
           color="secondary"
           gutterBottom={true}
+          className={classes.title}
         >
           Start building your Movie List!
         </Typography>
-        <SearchMovieField className={classes.search} />
+        <div className={classes.search}>
+          <SearchMovieField />
+        </div>
       </Box>
     </React.Fragment>
   );
 
   let timeout = {
-    enter: 700,
+    enter: 1000,
     exit: 700,
   };
 
@@ -156,16 +183,20 @@ function SelectedMovie(props) {
     if (movieChanged === 'first load') {
       setMovie(selectedMovie);
     } else if (movieChanged) {
-      setFade(false);
-      setTimeout(() => {
+      if (!newMovie) {
+        setFade(false);
+        setTimeout(() => {
+          setMovie(selectedMovie);
+          setFade(true);
+        }, 500);
+      } else {
         setMovie(selectedMovie);
-        setFade(true);
-      }, 500);
+      }
     }
-  }, [selectedMovie, movieChanged]);
+  }, [selectedMovie, movieChanged, newMovie]);
 
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down('xs'));
+  const matches = useMediaQuery(theme.breakpoints.down('md'));
 
   if (movie) {
     const backgroundImageUrl = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
@@ -173,7 +204,7 @@ function SelectedMovie(props) {
       <React.Fragment>
         <Box component="div" className={classes.infoContainer}>
           <Typography
-            variant="h1"
+            variant="h2"
             component="h2"
             color="secondary"
             className={classes.title}
@@ -181,14 +212,15 @@ function SelectedMovie(props) {
             {movie.title}
           </Typography>
 
-          <Typography variant="h4" color="textPrimary" gutterBottom={true}>
+          <Typography variant="h4" color="textSecondary" gutterBottom={true}>
             {movie.tagline}
           </Typography>
 
           <Typography
-            variant="subtitle1"
+            variant="h5"
             color="textPrimary"
             gutterBottom={true}
+            className={classes.description}
           >
             {movie.overview}
           </Typography>
@@ -198,6 +230,8 @@ function SelectedMovie(props) {
               color="secondary"
               variant="contained"
               onClick={setMovieWatched}
+              className={classes.btn}
+              size={matches ? 'small' : 'large'}
             >
               seen
             </Button>
@@ -206,6 +240,8 @@ function SelectedMovie(props) {
               color="primary"
               variant="contained"
               onClick={setMovieWatched}
+              className={classes.btn}
+              size={matches ? 'small' : 'large'}
             >
               not seen
             </Button>
@@ -227,7 +263,7 @@ function SelectedMovie(props) {
                 onChange={handleRating}
                 max={10}
                 readOnly
-                size={matches ? 'xsall' : 'medium'}
+                size={matches ? 'small' : 'medium'}
               />
             </Box>
             <Box component="div" className={classes.ratingContainer}>
@@ -246,7 +282,7 @@ function SelectedMovie(props) {
                 onChange={handleRating}
                 disabled={!movie.watched}
                 max={10}
-                size={matches ? 'xsall' : 'medium'}
+                size={matches ? 'small' : 'medium'}
               />
             </Box>
           </div>
@@ -274,6 +310,7 @@ const mapStateToProps = (state) => {
     selectedMovie: state.movies.selectedMovie,
     token: state.auth.token,
     movieChanged: state.movies.movieChanged,
+    newMovie: state.movies.newMovie,
   };
 };
 
@@ -286,4 +323,6 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SelectedMovie);
+export default compose(connect(mapStateToProps, mapDispatchToProps))(
+  SelectedMovie
+);

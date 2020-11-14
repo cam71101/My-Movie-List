@@ -5,6 +5,7 @@ const initialState = {
   modal: false,
   movies: [],
   movieChanged: 'first load',
+  newMovie: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -44,12 +45,13 @@ const reducer = (state = initialState, action) => {
       const searchedMovie = { ...newState.searchedMovie };
       searchedMovie.key = action.key;
       searchedMovie.userId = action.userId;
-      console.log(searchedMovie);
       movies.push(searchedMovie);
       return updateObject(state, {
         movies: movies,
         selectedMovie: searchedMovie,
         modal: !state.modal,
+        movieChanged: true,
+        newMovie: true,
       });
 
     case actionTypes.REMOVE_FROM_MOVIE_LIST:
@@ -63,6 +65,7 @@ const reducer = (state = initialState, action) => {
       return updateObject(state, {
         selectedMovie: action.movie,
         movieChanged: true,
+        newMovie: false,
       });
 
     case actionTypes.SET_MOVIE_LIST:

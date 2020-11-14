@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import NavBar from '../../components/UI/NavBar';
-import TransitionModal from '../../components/UI/TransitionModal';
-import MovieList from './MovieList/MoveList';
+import NavBar from './UI/NavBar';
+import TransitionModal from '../../components/TransitionModal';
+import MovieList from './MovieList/MovieList';
 import { makeStyles } from '@material-ui/core/styles';
 import SelectedMovie from './SelectedMovie/SelectedMovie';
 import * as actions from '../../store/actions/index';
@@ -9,6 +9,8 @@ import axios from '../../axios-movie-data';
 import { connect } from 'react-redux';
 import withErrorHandler from '../../hoc/withErrorHandler';
 import PosterModalCard from '../../components/PosterModalCard';
+import { compose } from 'redux';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,16 +25,24 @@ const useStyles = makeStyles((theme) => ({
     top: '39rem',
     background:
       'linear-gradient(0deg, rgba(2,0,36,0) 0%, rgba(0,0,0,1) 46%, rgba(0,212,255,0) 100%)',
-    // [theme.breakpoints.up('xl')]: {
-    //   top: '44rem',
-    // },
   },
   [theme.breakpoints.up('xl')]: {
     height: '62rem',
   },
+  loading: {
+    width: '100%',
+    height: '80rem',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  wheel: {
+    height: '20rem',
+    width: '20rem',
+  },
 }));
 
-function Home(props) {
+export function Home(props) {
   const [loading, setLoading] = useState(true);
   const [selectInput, setSelectInput] = useState('');
   const classes = useStyles();
@@ -75,7 +85,9 @@ function Home(props) {
         });
 
         onSetMovieList(arrayResponse);
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+        }, 300);
       } catch (err) {}
     })();
   }, [onSetMovieList, token, userId]);
@@ -88,7 +100,11 @@ function Home(props) {
     }
   }
 
-  let homepage = null;
+  let homepage = (
+    <div className={classes.loading}>
+      <CircularProgress color="secondary" />
+    </div>
+  );
 
   let checkMovieAdded = false;
   if (movies && searchedMovie) {
@@ -149,7 +165,6 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withErrorHandler(Home, axios));
+export default compose(connect(mapStateToProps, mapDispatchToProps))(
+  withErrorHandler(Home, axios)
+);

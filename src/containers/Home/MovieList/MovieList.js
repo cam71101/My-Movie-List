@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     flexGrow: 1,
     marginTop: '-5rem',
+    background: 'black',
   },
   filter: {
     display: 'flex',

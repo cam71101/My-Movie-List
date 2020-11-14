@@ -6,12 +6,13 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import * as actions from '../../store/actions/index';
-import SearchMoviesField from '../../containers/Home/SearchMoviesField/SearchMoviesField';
-import logo from '../../assets/images/logo.png';
+import * as actions from '../../../store/actions/index';
+import SearchMoviesField from '../SearchMoviesField/SearchMoviesField';
+import logo from '../../../assets/images/logo.png';
 import Fade from '@material-ui/core/Fade';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
+import { compose } from 'redux';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -72,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ButtonAppBar = (props) => {
+export function NavBar(props) {
   const classes = useStyles();
 
   const theme = useTheme();
@@ -103,7 +104,7 @@ const ButtonAppBar = (props) => {
       </Fade>
     </div>
   );
-};
+}
 
 const mapStateToProps = (state) => {
   return {
@@ -117,4 +118,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ButtonAppBar);
+export default compose(connect(mapStateToProps, mapDispatchToProps))(NavBar);
