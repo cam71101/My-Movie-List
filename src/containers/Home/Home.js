@@ -133,6 +133,7 @@ export function Home(props) {
               tagline={searchedMovie.tagline}
               overview={searchedMovie.overview}
               voteAverage={searchedMovie.vote_average}
+              close={handleClose}
             />
           </TransitionModal>
         ) : null}

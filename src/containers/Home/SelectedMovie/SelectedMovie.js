@@ -11,7 +11,6 @@ import Fade from '@material-ui/core/Fade';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import { compose } from 'redux';
-import { removeMovie } from '../../../store/actions/movies';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     width: '150rem',
     transform: 'translateY(10vw)',
     [theme.breakpoints.up('xl')]: {
-      width: '180rem',
+      width: '200rem',
     },
     [theme.breakpoints.down('l')]: {
       width: '180rem',

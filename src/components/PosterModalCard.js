@@ -8,12 +8,14 @@ import Button from '@material-ui/core/Button';
 import Rating from '@material-ui/lab/Rating';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import CancelIcon from '@material-ui/icons/Cancel';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     width: '70rem',
     height: '40rem',
+    position: 'relative',
     [theme.breakpoints.between('sm', 'md')]: {
       height: '37rem',
       width: '45rem',
@@ -23,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
       width: '20rem',
       flexDirection: 'column',
       justifyContent: 'flex-end',
-      position: 'relative',
+
       overflow: 'hidden',
     },
   },
@@ -76,6 +78,9 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '.5rem',
     marginLeft: '.3rem',
     zIndex: 1,
+    [theme.breakpoints.down('xs')]: {
+      paddingTop: '.3rem',
+    },
   },
   genresList: {
     width: '50%',
@@ -87,6 +92,14 @@ const useStyles = makeStyles((theme) => ({
   runTimeContainer: {
     alignSelf: 'flexend',
     zIndex: 1,
+  },
+  close: {
+    position: 'absolute',
+    right: 1,
+    top: 1,
+    '&:hover': {
+      cursor: 'pointer',
+    },
   },
 }));
 
@@ -119,6 +132,13 @@ const PosterModalCard = (props) => {
           alt="No poster available"
         />
       ) : null}
+      <CancelIcon
+        onClick={props.close}
+        color="secondary"
+        className={classes.close}
+        fontSize="large"
+        Filled
+      />
 
       {/* {posterText} */}
       <div className={classes.details}>
@@ -133,7 +153,7 @@ const PosterModalCard = (props) => {
               {props.title}
             </Typography>
             <Typography
-              variant={matches ? 'h5' : 'h5'}
+              variant={matches ? 'h5' : 'h4'}
               color="textSecondary"
               gutterBottom={true}
             >
@@ -141,7 +161,7 @@ const PosterModalCard = (props) => {
             </Typography>
 
             <Typography
-              variant={matches ? 'subtitle2' : 'subtitle1'}
+              variant={matches ? 'subtitle2' : 'h5'}
               color="textPrimary"
               gutterBottom={true}
             >
@@ -176,7 +196,7 @@ const PosterModalCard = (props) => {
               </Typography>
             </div>
             <div className={classes.ratingsContainer}>
-              <Typography variant={matches ? 'h5' : 'h5'} color="secondary">
+              <Typography variant="h5" color="secondary">
                 Rating:
               </Typography>
               <Rating

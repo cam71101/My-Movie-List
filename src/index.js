@@ -33,8 +33,6 @@ const store = createStore(
   composeEnhancers(applyMiddleware(logger, ReduxThunk))
 );
 
-console.log(theme);
-
 ReactDOM.render(
   <Provider store={store}>
     <ThemeProvider theme={theme}>

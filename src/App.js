@@ -41,11 +41,7 @@ function App(props) {
     );
   }
 
-  return (
-    <Box component="div" bgcolor="background.default">
-      {routes}
-    </Box>
-  );
+  return <Box component="div">{routes}</Box>;
 }
 
 const mapStateToProps = (state) => {
