@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import * as actions from '../../../store/actions/index';
-import SearchMoviesField from '../SearchMoviesField/SearchMoviesField';
 import logo from '../../../assets/images/logo.png';
 import Fade from '@material-ui/core/Fade';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -15,25 +14,27 @@ import { useTheme } from '@material-ui/core/styles';
 import { compose } from 'redux';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    backgroundColor: 'black',
-    zIndex: 2,
+  rootNav: {
+    // flexGrow: 1,
+    // backgroundColor: 'black',
+    // zIndex: 2,
   },
   appBar: {
+    width: '100%',
     background:
       'linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%)',
     display: 'flex',
     boxShadow: '0px 0px',
     height: '15rem',
     flexDirection: 'row',
+    // position: 'relative',
     [theme.breakpoints.down('xs')]: {
       position: 'absolute',
     },
   },
   Toolbar: {
     display: 'flex',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
     opacity: 1,
     width: '100%',
@@ -48,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
       height: '7rem',
       justifyContent: 'space-between',
     },
+    position: 'relative',
   },
   signOut: {
     order: 3,
@@ -57,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down('xs')]: {
       order: 1,
-      width: '7rem',
+      width: '3rem',
     },
   },
   logo: {
@@ -70,6 +72,18 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       width: '6rem',
     },
+  },
+  search: {
+    position: 'absolute',
+    borderRadius: theme.shape.borderRadius,
+    width: '20rem',
+    order: 2,
+    [theme.breakpoints.down('xs')]: {
+      order: 3,
+      width: '20rem',
+      margin: 'auto',
+    },
+    zIndex: 100,
   },
 }));
 
@@ -85,24 +99,21 @@ export function NavBar(props) {
   };
 
   return (
-    <div className={classes.root}>
-      <Fade in timeout={timeout}>
-        <AppBar className={classes.appBar}>
-          <Toolbar className={classes.Toolbar}>
-            <img className={classes.logo} src={logo} alt="Logo" />
-            <Link to="/logout" className={classes.signOut}>
-              <Button color="secondary" className={classes.signOut}>
-                <ExitToAppIcon fontSize={matches ? 'small' : undefined} /> Sign
-                out
-              </Button>
-            </Link>
-            {props.selectedMovie ? (
-              <SearchMoviesField className={classes.search} />
-            ) : null}
-          </Toolbar>
-        </AppBar>
-      </Fade>
-    </div>
+    // <div className={classes.rootNav}>
+    <Fade in timeout={timeout}>
+      <AppBar className={classes.appBar}>
+        <Toolbar className={classes.Toolbar}>
+          <img className={classes.logo} src={logo} alt="Logo" />
+          <Link to="/logout" className={classes.signOut}>
+            <Button color="secondary" className={classes.signOut}>
+              <ExitToAppIcon fontSize={matches ? 'small' : undefined} />{' '}
+              {matches ? null : 'Signout'}
+            </Button>
+          </Link>
+        </Toolbar>
+      </AppBar>
+    </Fade>
+    // </div>
   );
 }
 

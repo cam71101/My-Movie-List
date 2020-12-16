@@ -38,6 +38,19 @@ const theme = createMuiTheme({
     h4: {
       fontWeight: 200,
     },
+    subtitle2: {
+      fontSize: '1.1rem',
+      fontWeight: 200,
+    },
+  },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 2500,
+    },
   },
 });
 
@@ -48,10 +61,20 @@ theme.typography.h1 = {
   },
 };
 
+theme.typography.subtitle2 = {
+  ...theme.typography.subtitle2,
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '.8rem',
+  },
+};
+
 theme.typography.h2 = {
   ...theme.typography.h2,
   [theme.breakpoints.down('sm')]: {
     fontSize: '3rem',
+  },
+  [theme.breakpoints.down('lg')]: {
+    fontSize: '3.2rem',
   },
 };
 
@@ -76,6 +99,12 @@ theme.typography.h5 = {
   },
   [theme.breakpoints.down('md')]: {
     fontSize: '1.2rem',
+  },
+  [theme.breakpoints.down('lg')]: {
+    fontSize: '1.3rem',
+  },
+  [theme.breakpoints.down('xs')]: {
+    fontSize: '1.05rem',
   },
 };
 

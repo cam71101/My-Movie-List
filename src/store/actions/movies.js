@@ -28,6 +28,12 @@ export const addMovie = (key, userId) => {
   };
 };
 
+export const clearState = (key, userId) => {
+  return {
+    type: actionTypes.CLEAR_STATE,
+  };
+};
+
 export const addToMovieList = (movie, token) => {
   return async (dispatch) => {
     try {

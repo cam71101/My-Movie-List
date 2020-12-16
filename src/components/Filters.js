@@ -98,7 +98,7 @@ const Filters = (props) => {
       </FormControl>
     );
   } else {
-    filter = null;
+    filter = '';
   }
 
   return (

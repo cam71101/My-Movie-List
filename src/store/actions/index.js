@@ -8,5 +8,6 @@ export {
   updateWatched,
   saveMovieData,
   modalToggle,
+  clearState,
 } from './movies';
 export { auth, logout, authCheckState } from './auth';

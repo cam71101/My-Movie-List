@@ -59,6 +59,8 @@ const reducer = (state = initialState, action) => {
       return updateObject(state, {
         movies: removedMovie,
         selectedMovie: removedMovie[0],
+        movieChanged: true,
+        newMovie: false,
       });
 
     case actionTypes.SET_SELECTED_MOVIE:
@@ -90,6 +92,14 @@ const reducer = (state = initialState, action) => {
         selectedMovie: selectedMovie,
         movies: movies,
         movieChanged: false,
+      });
+
+    case actionTypes.CLEAR_STATE:
+      return updateObject(state, {
+        modal: false,
+        movies: [],
+        movieChanged: 'first load',
+        newMovie: false,
       });
 
     default:

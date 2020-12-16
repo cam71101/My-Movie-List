@@ -11,12 +11,13 @@ import withErrorHandler from '../../hoc/withErrorHandler';
 import PosterModalCard from '../../components/PosterModalCard';
 import { compose } from 'redux';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import SearchMoviesField from './SearchMoviesField/SearchMoviesField';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  rootHome: {
     display: 'flex',
     flexDirection: 'column',
-    positon: 'relative',
+    position: 'relative',
   },
   gradient: {
     width: '100%',
@@ -25,10 +26,17 @@ const useStyles = makeStyles((theme) => ({
     top: '39rem',
     background:
       'linear-gradient(0deg, rgba(2,0,36,0) 0%, rgba(0,0,0,1) 46%, rgba(0,212,255,0) 100%)',
+    [theme.breakpoints.down('xs')]: {
+      top: '25rem',
+    },
+    [theme.breakpoints.up('lg')]: {
+      top: '26rem',
+    },
+    [theme.breakpoints.up('xl')]: {
+      top: '48rem',
+    },
   },
-  [theme.breakpoints.up('xl')]: {
-    height: '62rem',
-  },
+
   loading: {
     width: '100%',
     height: '80rem',
@@ -39,6 +47,25 @@ const useStyles = makeStyles((theme) => ({
   wheel: {
     height: '20rem',
     width: '20rem',
+  },
+  searchContainer: {
+    position: 'absolute',
+    top: 26,
+    left: 0,
+    right: 0,
+    margin: 'auto',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    [theme.breakpoints.down('md')]: {
+      top: 25,
+    },
+    [theme.breakpoints.down('sm')]: {
+      top: 20,
+    },
+    [theme.breakpoints.down('xs')]: {
+      top: 80,
+    },
   },
 }));
 
@@ -65,7 +92,7 @@ export function Home(props) {
     let movie = { ...searchedMovie };
     movie.userId = userId;
     onAddToMovieList(movie, token);
-    setSelectInput(null);
+    setSelectInput('');
   };
 
   const handleSelectChange = (e) => {
@@ -77,6 +104,7 @@ export function Home(props) {
       try {
         const queryParams =
           '?auth=' + token + '&orderBy="userId"&equalTo="' + userId + '"';
+
         const response = await axios.get('/movies.json' + queryParams);
 
         const arrayResponse = Object.entries(response.data).map((e) => {
@@ -113,8 +141,12 @@ export function Home(props) {
 
   if (!loading) {
     homepage = (
-      <div className={classes.root}>
+      <div className={classes.rootHome}>
+        <div className={classes.searchContainer}>
+          <SearchMoviesField />
+        </div>
         <NavBar />
+
         <SelectedMovie />
         <div className={classes.gradient}></div>
         <MovieList

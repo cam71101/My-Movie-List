@@ -13,7 +13,7 @@ import CancelIcon from '@material-ui/icons/Cancel';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    width: '70rem',
+    maxWidth: '70rem',
     height: '40rem',
     position: 'relative',
     [theme.breakpoints.between('sm', 'md')]: {
@@ -25,8 +25,7 @@ const useStyles = makeStyles((theme) => ({
       width: '20rem',
       flexDirection: 'column',
       justifyContent: 'flex-end',
-
-      overflow: 'hidden',
+      alignItems: 'center',
     },
   },
   details: {
@@ -45,16 +44,27 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     [theme.breakpoints.down('xs')]: {
-      zIndex: 0,
-      opacity: 0.1,
-      position: 'absolute',
-      width: '25rem',
-      objectFit: 'cover',
+      width: '9rem',
+      flex: 'none',
     },
   },
   tagline: {
     flex: '3 3 90%',
     zIndex: 1,
+    overflow: 'auto',
+    [theme.breakpoints.down('xs')]: {
+      width: 'rem',
+      flex: 'none',
+      maxHeight: '13rem',
+      minHeight: '12rem',
+    },
+  },
+  overview: {
+    paddingRight: '5rem',
+    marginTop: '1rem',
+    [theme.breakpoints.down('xs')]: {
+      paddingRight: '3rem',
+    },
   },
   ratingsContainer: {
     display: 'flex',
@@ -132,12 +142,12 @@ const PosterModalCard = (props) => {
           alt="No poster available"
         />
       ) : null}
+
       <CancelIcon
         onClick={props.close}
         color="secondary"
         className={classes.close}
-        fontSize="large"
-        Filled
+        fontSize={matches ? 'medium' : 'large'}
       />
 
       {/* {posterText} */}
@@ -146,7 +156,6 @@ const PosterModalCard = (props) => {
           <div className={classes.tagline}>
             <Typography
               variant={matches ? 'h4' : 'h3'}
-              gutterBottom={true}
               color="secondary"
               className={classes.title}
             >
@@ -161,9 +170,10 @@ const PosterModalCard = (props) => {
             </Typography>
 
             <Typography
-              variant={matches ? 'subtitle2' : 'h5'}
+              variant="subtitle2"
               color="textPrimary"
               gutterBottom={true}
+              className={classes.overview}
             >
               {props.overview}
             </Typography>

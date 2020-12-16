@@ -11,13 +11,18 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     color: theme.palette.primary.main,
     outline: 0,
+    zIndex: 4000,
   },
 }));
+
+const style = {
+  zIndex: 4000,
+};
 
 function TransitionsModal(props) {
   const classes = useStyles();
   return (
-    <div>
+    <div className={classes.rootModal}>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -29,9 +34,10 @@ function TransitionsModal(props) {
         BackdropProps={{
           timeout: 500,
         }}
+        style={style}
       >
         <Fade in={props.modal}>
-          <span>{props.children}</span>
+          <span className={classes.spanModal}>{props.children}</span>
         </Fade>
       </Modal>
     </div>

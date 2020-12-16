@@ -26,6 +26,12 @@ const useStyles = makeStyles((theme) => ({
       height: 'auto',
       marginBottom: '5rem',
     },
+    [theme.breakpoints.up('lg')]: {
+      height: '45rem',
+    },
+    [theme.breakpoints.up('xl')]: {
+      height: '65rem',
+    },
   },
   black: {
     width: '100%',
@@ -38,6 +44,12 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'black',
     [theme.breakpoints.down('xs')]: {
       height: 'auto',
+    },
+    [theme.breakpoints.up('lg')]: {
+      height: '45rem',
+    },
+    [theme.breakpoints.up('xl')]: {
+      height: '65rem',
     },
   },
   img: {
@@ -54,9 +66,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('md')]: {
       width: '120rem',
     },
-    [theme.breakpoints.down('sm')]: {
-      width: '100rem',
-    },
+    // [theme.breakpoints.down('sm')]: {
+    //   width: '100rem',
+    // },
     [theme.breakpoints.down('xs')]: {
       width: '90rem',
       transform: 'translateY(0)',
@@ -70,6 +82,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     width: '100%',
     zIndex: 1,
+    [theme.breakpoints.down('lg')]: {
+      marginTop: '9rem',
+    },
     [theme.breakpoints.down('xs')]: {
       height: '100%',
       justifyContent: 'flex-start',
@@ -187,9 +202,6 @@ export function SelectedMovie(props) {
         >
           Start building your Movie List!
         </Typography>
-        <div className={classes.search}>
-          <SearchMovieField />
-        </div>
       </Box>
     </React.Fragment>
   );
@@ -200,6 +212,7 @@ export function SelectedMovie(props) {
   };
 
   useEffect(() => {
+    console.log(movieChanged);
     if (movieChanged === 'first load') {
       setMovie(selectedMovie);
     } else if (movieChanged) {

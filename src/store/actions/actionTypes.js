@@ -6,6 +6,7 @@ export const SET_SELECTED_MOVIE = 'SET_SELECTED_MOVIE';
 export const SET_MOVIE_LIST = 'SET_MOVIE_LIST';
 export const UPDATE_STAR_RATING = 'UPDATE_STAR_RATING';
 export const UPDATE_WATCHED = 'UPDATE_WATCHED';
+export const CLEAR_STATE = 'CLEAR_STATE';
 
 export const AUTH_START = 'AUTH_START';
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';

@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
       width: '20rem',
       margin: 'auto',
     },
-    zIndex: 100,
+    zIndex: 3000,
   },
   searchIcon: {
     padding: theme.spacing(0, 2),
