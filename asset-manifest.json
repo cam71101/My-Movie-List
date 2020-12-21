@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "/My-Movie-List/static/css/main.5204b28d.chunk.css",
-    "main.js": "/My-Movie-List/static/js/main.67b0d0eb.chunk.js",
-    "main.js.map": "/My-Movie-List/static/js/main.67b0d0eb.chunk.js.map",
-    "runtime-main.js": "/My-Movie-List/static/js/runtime-main.4fc2a98a.js",
-    "runtime-main.js.map": "/My-Movie-List/static/js/runtime-main.4fc2a98a.js.map",
+    "main.js": "/My-Movie-List/static/js/main.7ec38b44.chunk.js",
+    "main.js.map": "/My-Movie-List/static/js/main.7ec38b44.chunk.js.map",
+    "runtime-main.js": "/My-Movie-List/static/js/runtime-main.4addbaf6.js",
+    "runtime-main.js.map": "/My-Movie-List/static/js/runtime-main.4addbaf6.js.map",
     "static/js/2.c69e7ba8.chunk.js": "/My-Movie-List/static/js/2.c69e7ba8.chunk.js",
     "static/js/2.c69e7ba8.chunk.js.map": "/My-Movie-List/static/js/2.c69e7ba8.chunk.js.map",
     "static/js/3.92f0dbc0.chunk.js": "/My-Movie-List/static/js/3.92f0dbc0.chunk.js",
     "static/js/3.92f0dbc0.chunk.js.map": "/My-Movie-List/static/js/3.92f0dbc0.chunk.js.map",
-    "static/js/4.9fd99d47.chunk.js": "/My-Movie-List/static/js/4.9fd99d47.chunk.js",
-    "static/js/4.9fd99d47.chunk.js.map": "/My-Movie-List/static/js/4.9fd99d47.chunk.js.map",
+    "static/js/4.155be56e.chunk.js": "/My-Movie-List/static/js/4.155be56e.chunk.js",
+    "static/js/4.155be56e.chunk.js.map": "/My-Movie-List/static/js/4.155be56e.chunk.js.map",
     "index.html": "/My-Movie-List/index.html",
-    "precache-manifest.882870762438528f9168a601cacbcbce.js": "/My-Movie-List/precache-manifest.882870762438528f9168a601cacbcbce.js",
+    "precache-manifest.ab4053f8b2f0647606f213d4118edbb7.js": "/My-Movie-List/precache-manifest.ab4053f8b2f0647606f213d4118edbb7.js",
     "service-worker.js": "/My-Movie-List/service-worker.js",
     "static/css/main.5204b28d.chunk.css.map": "/My-Movie-List/static/css/main.5204b28d.chunk.css.map",
     "static/js/2.c69e7ba8.chunk.js.LICENSE.txt": "/My-Movie-List/static/js/2.c69e7ba8.chunk.js.LICENSE.txt",
     "static/js/3.92f0dbc0.chunk.js.LICENSE.txt": "/My-Movie-List/static/js/3.92f0dbc0.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.4fc2a98a.js",
+    "static/js/runtime-main.4addbaf6.js",
     "static/js/2.c69e7ba8.chunk.js",
     "static/css/main.5204b28d.chunk.css",
-    "static/js/main.67b0d0eb.chunk.js"
+    "static/js/main.7ec38b44.chunk.js"
   ]
 }
