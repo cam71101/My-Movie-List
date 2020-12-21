@@ -85,21 +85,6 @@ const Filters = (props) => {
         </Select>
       </FormControl>
     );
-  } else if (props.filterSelect === 'watched') {
-    filter = (
-      <FormControl className={classes.formControl}>
-        <InputLabel id="watched"></InputLabel>
-        <Select
-          labelId="watched"
-          id="watched"
-          value={props.filterWatched}
-          onChange={props.handleWatchedChange}
-        >
-          <MenuItem value={'watched'}>Seen</MenuItem>
-          <MenuItem value={'not watched'}>Not Seen</MenuItem>
-        </Select>
-      </FormControl>
-    );
   } else {
     filter = '';
   }
@@ -123,8 +108,11 @@ const Filters = (props) => {
           <MenuItem value={'genre'} name="Genre">
             Genre
           </MenuItem>
-          <MenuItem value={'watched'} name="Genre">
-            Watched
+          <MenuItem value={'watched'} name="watched">
+            Seen
+          </MenuItem>
+          <MenuItem value={'not watched'} name="not watched">
+            Not Seen
           </MenuItem>
         </Select>
       </FormControl>

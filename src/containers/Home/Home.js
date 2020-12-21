@@ -78,6 +78,7 @@ export function Home(props) {
   };
 
   const handleSelectChange = (e) => {
+    console.log(e);
     setSelectInput(e.target.value);
   };
 

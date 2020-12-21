@@ -78,16 +78,15 @@ const MovieGrid = (props) => {
           });
         });
       }
-    } else if (props.filterSelect === 'watched') {
-      if (filterWatched) {
-        if (filterWatched === 'watched') {
-          filteredMovies = movies.filter((movie) => movie.watched === true);
-        } else {
-          filteredMovies = movies.filter((movie) => movie.watched === false);
-        }
+    } else if (props.filterSelect === 'not watched') {
+      if (filterWatched === 'not watched') {
+        filteredMovies = movies.filter((movie) => movie.watched === true);
+      } else {
+        filteredMovies = movies.filter((movie) => movie.watched === false);
       }
+    } else if (props.filterSelect === 'watched') {
+      filteredMovies = movies.filter((movie) => movie.watched === true);
     }
-
     movieList = filteredMovies.map((value) => (
       <Grow in key={value.key}>
         <Grid key={value.key} item>
