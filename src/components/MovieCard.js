@@ -7,12 +7,13 @@ import Rating from '@material-ui/lab/Rating';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import { useTheme } from '@material-ui/core/styles';
+import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 400,
     margin: '.5rem',
-    zIndex: 1000,
+    zIndex: 10000,
   },
   media: {
     width: 350,
@@ -29,6 +30,11 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     marginLeft: 0,
   },
+  titleContainer: {
+    opacity: 1,
+    backgroundColor: 'black',
+  },
+  title: {},
 }));
 
 export default function MediaCard(props) {
@@ -47,6 +53,11 @@ export default function MediaCard(props) {
 
   return (
     <Card className={classes.root}>
+      {/* <div className={classes.titleContainer}>
+        <Typography color="secondary" className={classes.title}>
+          {props.title}
+        </Typography>
+      </div> */}
       <CardActionArea onClick={props.select}>
         <CardMedia
           className={classes.media}
@@ -56,6 +67,7 @@ export default function MediaCard(props) {
           style={borderStyle}
         ></CardMedia>
       </CardActionArea>
+
       <CardActions className={classes.cardActions} style={style}>
         <Rating
           name="rating"

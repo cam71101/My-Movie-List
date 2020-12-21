@@ -36,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor: '#282E34',
   },
   card: {
     minWidth: 275,
@@ -44,7 +43,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    // background: '#F8F8F9',
     opacity: 0.9,
   },
   logo: {

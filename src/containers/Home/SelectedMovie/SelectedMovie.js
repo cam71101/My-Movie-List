@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     position: 'relative',
     backgroundColor: 'black',
+    // zIndex: 10000,
     [theme.breakpoints.down('xs')]: {
       height: 'auto',
       marginBottom: '5rem',
@@ -53,6 +54,29 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   img: {
+    // position: 'absolute',
+    // opacity: 0.2,
+    // width: '150rem',
+    // transform: 'translateY(10vw)',
+    // [theme.breakpoints.up('xl')]: {
+    //   width: '200rem',
+    // },
+    // [theme.breakpoints.down('l')]: {
+    //   width: '180rem',
+    // },
+    // [theme.breakpoints.down('md')]: {
+    //   width: '120rem',
+    // },
+
+    // [theme.breakpoints.down('xs')]: {
+    //   width: '90rem',
+    //   transform: 'translateY(0)',
+    // },
+    // zIndex: 0,
+    width: '100%',
+    height: '100%',
+  },
+  imgContainer: {
     position: 'absolute',
     opacity: 0.2,
     width: '150rem',
@@ -66,9 +90,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('md')]: {
       width: '120rem',
     },
-    // [theme.breakpoints.down('sm')]: {
-    //   width: '100rem',
-    // },
+
     [theme.breakpoints.down('xs')]: {
       width: '90rem',
       transform: 'translateY(0)',
@@ -149,6 +171,24 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       textAlign: 'center',
       width: '80vw',
+    },
+  },
+  gradient: {
+    width: '100%',
+    height: '35rem',
+    position: 'absolute',
+    top: '39rem',
+    zindex: 0,
+    background:
+      'linear-gradient(0deg, rgba(2,0,36,0) 0%, rgba(0,0,0,1) 46%, rgba(0,212,255,0) 100%)',
+    [theme.breakpoints.down('xs')]: {
+      top: '25rem',
+    },
+    [theme.breakpoints.up('lg')]: {
+      top: '35rem',
+    },
+    [theme.breakpoints.up('xl')]: {
+      top: '48rem',
     },
   },
 }));
@@ -325,11 +365,14 @@ export function SelectedMovie(props) {
             </Box>
           </div>
         </Box>
-        <img
-          src={backgroundImageUrl}
-          className={classes.img}
-          alt="backgroundImage"
-        />
+        <div className={classes.imgContainer}>
+          <img
+            src={backgroundImageUrl}
+            className={classes.img}
+            alt="backgroundImage"
+          />
+          <div className={classes.gradient} />
+        </div>
       </React.Fragment>
     );
   }

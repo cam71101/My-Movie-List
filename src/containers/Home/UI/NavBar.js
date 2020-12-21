@@ -14,11 +14,6 @@ import { useTheme } from '@material-ui/core/styles';
 import { compose } from 'redux';
 
 const useStyles = makeStyles((theme) => ({
-  rootNav: {
-    // flexGrow: 1,
-    // backgroundColor: 'black',
-    // zIndex: 2,
-  },
   appBar: {
     width: '100%',
     background:
@@ -27,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: '0px 0px',
     height: '15rem',
     flexDirection: 'row',
-    // position: 'relative',
     [theme.breakpoints.down('xs')]: {
       position: 'absolute',
     },
@@ -99,7 +93,6 @@ export function NavBar(props) {
   };
 
   return (
-    // <div className={classes.rootNav}>
     <Fade in timeout={timeout}>
       <AppBar className={classes.appBar}>
         <Toolbar className={classes.Toolbar}>
@@ -113,7 +106,6 @@ export function NavBar(props) {
         </Toolbar>
       </AppBar>
     </Fade>
-    // </div>
   );
 }
 

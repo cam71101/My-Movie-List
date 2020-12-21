@@ -9,7 +9,7 @@ import Filters from '../../../components/Filters';
 import Grow from '@material-ui/core/Grow';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  rootMovieList: {
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'column',
@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     marginTop: '-5rem',
     background: 'black',
+    // zIndex: 100000,
   },
   filter: {
     display: 'flex',
@@ -110,7 +111,7 @@ const MovieGrid = (props) => {
   }
 
   return (
-    <Box component="div" className={classes.root}>
+    <Box component="div" className={classes.rootMovieList}>
       {movies.length !== 0 ? (
         <Filters
           filterTitle={filterTitle}

@@ -19,24 +19,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     position: 'relative',
   },
-  gradient: {
-    width: '100%',
-    height: '35rem',
-    position: 'absolute',
-    top: '39rem',
-    background:
-      'linear-gradient(0deg, rgba(2,0,36,0) 0%, rgba(0,0,0,1) 46%, rgba(0,212,255,0) 100%)',
-    [theme.breakpoints.down('xs')]: {
-      top: '25rem',
-    },
-    [theme.breakpoints.up('lg')]: {
-      top: '26rem',
-    },
-    [theme.breakpoints.up('xl')]: {
-      top: '48rem',
-    },
-  },
-
   loading: {
     width: '100%',
     height: '80rem',
@@ -148,7 +130,7 @@ export function Home(props) {
         <NavBar />
 
         <SelectedMovie />
-        <div className={classes.gradient}></div>
+
         <MovieList
           handleSelect={(e) => handleSelectChange(e)}
           filterSelect={selectInput}

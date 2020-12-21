@@ -79,7 +79,7 @@ const SearchMoviesBar = (props) => {
           `https://cors-anywhere.herokuapp.com/http://api.themoviedb.org/3/search/movie?api_key=105094d957931ab7b01705c2f3d2dd58&query=${input}`
         );
         const movies = await response.json();
-        movies.results.length = 2;
+        movies.results.length = 5;
         if (active) {
           setOptions(movies.results.map((key) => key));
         }

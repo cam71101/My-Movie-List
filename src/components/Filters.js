@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'flex-end',
+    [theme.breakpoints.down('lg')]: {
+      marginTop: '2rem',
+    },
   },
   gridContainer: {
     flexGrow: 1,
