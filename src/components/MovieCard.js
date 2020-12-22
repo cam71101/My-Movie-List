@@ -53,11 +53,6 @@ export default function MediaCard(props) {
 
   return (
     <Card className={classes.root}>
-      {/* <div className={classes.titleContainer}>
-        <Typography color="secondary" className={classes.title}>
-          {props.title}
-        </Typography>
-      </div> */}
       <CardActionArea onClick={props.select}>
         <CardMedia
           className={classes.media}

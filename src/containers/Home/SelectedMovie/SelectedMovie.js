@@ -11,9 +11,12 @@ import Fade from '@material-ui/core/Fade';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import { compose } from 'redux';
+import LazyLoad from 'react-lazyload';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  selectedMovieRoot: {
     width: '100%',
     height: '57rem',
     overflow: 'hidden',
@@ -22,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     position: 'relative',
     backgroundColor: 'black',
-    // zIndex: 10000,
     [theme.breakpoints.down('xs')]: {
       height: 'auto',
       marginBottom: '5rem',
@@ -54,25 +56,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   img: {
-    // position: 'absolute',
-    // opacity: 0.2,
-    // width: '150rem',
-    // transform: 'translateY(10vw)',
-    // [theme.breakpoints.up('xl')]: {
-    //   width: '200rem',
-    // },
-    // [theme.breakpoints.down('l')]: {
-    //   width: '180rem',
-    // },
-    // [theme.breakpoints.down('md')]: {
-    //   width: '120rem',
-    // },
-
-    // [theme.breakpoints.down('xs')]: {
-    //   width: '90rem',
-    //   transform: 'translateY(0)',
-    // },
-    // zIndex: 0,
     width: '100%',
     height: '100%',
   },
@@ -191,11 +174,20 @@ const useStyles = makeStyles((theme) => ({
       top: '48rem',
     },
   },
+  loading: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    margin: 'auto',
+  },
 }));
 
 export function SelectedMovie(props) {
   const [fade, setFade] = useState(true);
   const [movie, setMovie] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   const classes = useStyles();
   const {
@@ -251,17 +243,46 @@ export function SelectedMovie(props) {
     exit: 700,
   };
 
+  // const cacheImages = async (srcArray) => {
+  //   const promises = await srcArray.map((src) => {
+  //     return new Promise(function (resolve, reject) {
+  //       const img = new Image();
+  //       img.src = `https://image.tmdb.org/t/p/original${src.backdrop_path}`;
+  //       img.onLoad = resolve();
+  //       img.onError = reject();
+  //     });
+  //   });
+  //   await Promise.all(promises);
+  // };
+
+  // const cacheImage = async (srcArray) => {
+  //   const promises = await ((src) => {
+  //     return new Promise(function (resolve, reject) {
+  //       const img = new Image();
+  //       img.src = `https://image.tmdb.org/t/p/original${src.backdrop_path}`;
+  //       img.onLoad = resolve();
+  //       img.onerror = reject();
+  //     });
+  //   });
+  //   await Promise.resolve(promises);
+  //   setIsLoading(false);
+  // };
+
   useEffect(() => {
-    console.log(movieChanged);
     if (movieChanged === 'first load') {
+      // setIsLoading(true);
       setMovie(selectedMovie);
+      // setTimeout(() => {
+      //   setIsLoading(false);
+      // }, 1000);
     } else if (movieChanged) {
       if (!newMovie) {
         setFade(false);
+
         setTimeout(() => {
           setMovie(selectedMovie);
           setFade(true);
-        }, 500);
+        }, 600);
       } else {
         setMovie(selectedMovie);
       }
@@ -371,6 +392,7 @@ export function SelectedMovie(props) {
             className={classes.img}
             alt="backgroundImage"
           />
+
           <div className={classes.gradient} />
         </div>
       </React.Fragment>
@@ -380,7 +402,13 @@ export function SelectedMovie(props) {
   return (
     <Box className={classes.black}>
       <Fade in={fade} timeout={timeout}>
-        <Box className={classes.root}>{background}</Box>
+        <Box className={classes.selectedMovieRoot}>
+          {isLoading ? (
+            <CircularProgress className={classes.loading} />
+          ) : (
+            background
+          )}
+        </Box>
       </Fade>
     </Box>
   );
@@ -392,6 +420,7 @@ const mapStateToProps = (state) => {
     token: state.auth.token,
     movieChanged: state.movies.movieChanged,
     newMovie: state.movies.newMovie,
+    movies: state.movies.movies,
   };
 };
 

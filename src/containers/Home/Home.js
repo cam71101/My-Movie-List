@@ -82,6 +82,24 @@ export function Home(props) {
     setSelectInput(e.target.value);
   };
 
+  const cacheImages = async (srcArray) => {
+    const promises = await srcArray.map((src) => {
+      return new Promise(function (resolve, reject) {
+        const img = new Image();
+        img.src = `https://image.tmdb.org/t/p/original${src.backdrop_path}`;
+        img.onLoad = resolve();
+        img.onError = reject();
+
+        const imgtwo = new Image();
+        imgtwo.src = `https://image.tmdb.org/t/p/original${src.poster_path}`;
+        imgtwo.onLoad = resolve();
+        imgtwo.onError = reject();
+      });
+    });
+    console.log(promises);
+    await Promise.all(promises);
+  };
+
   useEffect(() => {
     (async () => {
       try {
@@ -96,9 +114,11 @@ export function Home(props) {
         });
 
         onSetMovieList(arrayResponse);
-        setTimeout(() => {
-          setLoading(false);
-        }, 300);
+
+        console.log(arrayResponse);
+        cacheImages(arrayResponse);
+
+        setLoading(false);
       } catch (err) {}
     })();
   }, [onSetMovieList, token, userId]);
