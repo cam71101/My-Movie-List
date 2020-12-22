@@ -12,7 +12,7 @@
 <img src="https://img.shields.io/badge/react-17.0.1-green" />
 </p>
 
-<h2 align="center"><a  href="https://cam71101.github.io/my-movie-list/">Live Demo</a></h2>
+<h2 align="center"><a  href="https://cam71101.github.io/My-Movie-List">Live Demo</a></h2>
 
 ## Description
 
@@ -20,9 +20,7 @@
 <img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608640031/MyMoveListDesktop_f2fa3c32de.gif" />
 </p>
 
-PodApp inspired by my love for Podcasts! is an application for discovering and listening to podcasts in your web browser. There are different categories for various genres as well as the most popular podcasts, along with the ability to search the library. The application pulls images and data from the <a  href="https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/">ITunes API</a> and <a  href="https://www.listennotes.com/api/">Listen Notes API.</a>
-
-You can also find a few blog posts about the making of the app <a  href="https://d-fisher.com/blogs">here</a>.
+Having worked in the movie industry and also being a movie geek, it seemed appropriate to make a app based on this interest. My Movie List is taking the to-do app idea and putting my own twist on it. Instead of a to-do list it's a to-watch list. The user can create an account, search for movies they're intested in watching or have seen, add them to their list and give the movie a rating out of 10. The user can also filter their movies by title, genre, seen and not seen. This app uses <a href="https://developers.themoviedb.org/3"> The Movie Database API </a>
 
 ## Technical details
 
