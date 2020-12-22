@@ -96,7 +96,6 @@ export function Home(props) {
         imgtwo.onError = reject();
       });
     });
-    console.log(promises);
     await Promise.all(promises);
   };
 
@@ -114,8 +113,6 @@ export function Home(props) {
         });
 
         onSetMovieList(arrayResponse);
-
-        console.log(arrayResponse);
         cacheImages(arrayResponse);
 
         setLoading(false);

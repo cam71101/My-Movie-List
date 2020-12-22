@@ -171,7 +171,7 @@ const useStyles = makeStyles((theme) => ({
       top: '35rem',
     },
     [theme.breakpoints.up('xl')]: {
-      top: '48rem',
+      top: '55rem',
     },
   },
   loading: {
