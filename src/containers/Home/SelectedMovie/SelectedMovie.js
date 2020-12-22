@@ -118,6 +118,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column-reverse',
     justifyContent: 'center',
     alignItems: 'center',
+    [theme.breakpoints.down('xs')]: {
+      marginTop: '10rem',
+    },
   },
   ratingText: {
     margin: '0 0 0 8px',
@@ -174,6 +177,24 @@ const useStyles = makeStyles((theme) => ({
       top: '55rem',
     },
   },
+  gradientBG: {
+    width: '100%',
+    height: '35rem',
+    position: 'absolute',
+    top: '43rem',
+    zindex: 0,
+    background:
+      'linear-gradient(0deg, rgba(2,0,36,0) 0%, rgba(0,0,0,1) 46%, rgba(0,212,255,0) 100%)',
+    [theme.breakpoints.down('xs')]: {
+      top: '30rem',
+    },
+    [theme.breakpoints.up('lg')]: {
+      top: '43rem',
+    },
+    [theme.breakpoints.up('xl')]: {
+      top: '65rem',
+    },
+  },
   loading: {
     position: 'absolute',
     left: 0,
@@ -217,13 +238,14 @@ export function SelectedMovie(props) {
 
   let background = (
     <React.Fragment>
-      <img
-        src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
-        className={classes.img}
-        alt="backgro
-        undImage"
-        style={{ opacity: 1 }}
-      />
+      <div className={classes.imgContainer} style={{ opacity: 1 }}>
+        <img
+          src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+          className={classes.img}
+          alt="backgroundImage"
+        />
+        <div className={classes.gradientBG} />
+      </div>
       <Box component="div" className={classes.startContainer}>
         <Typography
           variant="h1"
@@ -243,38 +265,9 @@ export function SelectedMovie(props) {
     exit: 700,
   };
 
-  // const cacheImages = async (srcArray) => {
-  //   const promises = await srcArray.map((src) => {
-  //     return new Promise(function (resolve, reject) {
-  //       const img = new Image();
-  //       img.src = `https://image.tmdb.org/t/p/original${src.backdrop_path}`;
-  //       img.onLoad = resolve();
-  //       img.onError = reject();
-  //     });
-  //   });
-  //   await Promise.all(promises);
-  // };
-
-  // const cacheImage = async (srcArray) => {
-  //   const promises = await ((src) => {
-  //     return new Promise(function (resolve, reject) {
-  //       const img = new Image();
-  //       img.src = `https://image.tmdb.org/t/p/original${src.backdrop_path}`;
-  //       img.onLoad = resolve();
-  //       img.onerror = reject();
-  //     });
-  //   });
-  //   await Promise.resolve(promises);
-  //   setIsLoading(false);
-  // };
-
   useEffect(() => {
     if (movieChanged === 'first load') {
-      // setIsLoading(true);
       setMovie(selectedMovie);
-      // setTimeout(() => {
-      //   setIsLoading(false);
-      // }, 1000);
     } else if (movieChanged) {
       if (!newMovie) {
         setFade(false);
