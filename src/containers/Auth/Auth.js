@@ -13,7 +13,7 @@ const email = generateTextInput(
   'input',
   'email',
   'Your Email',
-  '',
+  'test@test.co.uk',
   true,
   true,
   0,
@@ -23,7 +23,7 @@ const password = generateTextInput(
   'input',
   'password',
   'Password',
-  '',
+  'happy123',
   true,
   false,
   6,
@@ -70,7 +70,7 @@ const Auth = (props) => {
     email,
     password,
   });
-  const [isSignup, setIsSignUp] = useState(true);
+  const [isSignup, setIsSignUp] = useState(false);
   const { onAuth } = props;
 
   const classes = useStyles();
@@ -122,6 +122,7 @@ const Auth = (props) => {
     formElementsArray.push({
       id: key,
       config: controls[key],
+      value: controls[key].value,
     });
   }
 
@@ -141,7 +142,6 @@ const Auth = (props) => {
       {authRedirect}
       <Card className={classes.card}>
         <img className={classes.logo} src={logo} alt="Logo" />
-
         <form className={classes.form} noValidate autoComplete="off">
           <div className={classes.formContainer}>
             {formElementsArray.map((formElement) => {
@@ -166,7 +166,8 @@ const Auth = (props) => {
                   onChange={(event) =>
                     inputChangedHandler(event, formElement.id)
                   }
-                />
+                  value={formElement.value}
+                ></TextField>
               );
             })}
             <Button
