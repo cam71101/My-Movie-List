@@ -37,15 +37,17 @@ For the search bar, I used an autocomplete component. I felt this made the App s
 ## Responsive Design
 
 <p align="center">
-<img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608584482/PodcastAppResponsiveLowRes_9084851fc7.gif" />
+<img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608643280/MyMoveListResponsive_e556aab736.gif" />
 </p>
 
 ## Main Features
 
-- Audio player (courtesy of https://www.npmjs.com/package/react-h5-audio-player)
-- Podcast charts
-- Search
-- Categories
+- Auto complete search
+- Authentication
+- Add favourite movies to a list
+- Rate the movies
+- Mark if watched or not
+- Filter movies by name, genre, watched or not watched
 
 ## Project setup
 
