@@ -20,19 +20,19 @@
 <img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608640031/MyMoveListDesktop_f2fa3c32de.gif" />
 </p>
 
-Having worked in the movie industry and also being a movie geek, it seemed appropriate to make a app based on this interest. My Movie List is taking the to-do app idea and putting my own twist on it. Instead of a to-do list it's a to-watch list. The user can create an account, search for movies they're intested in watching or have seen, add them to their list and give the movie a rating out of 10. The user can also filter their movies by title, genre, seen and not seen. This app uses <a href="https://developers.themoviedb.org/3"> The Movie Database API </a>
+Having worked in the movie industry and also being a movie geek, it seemed appropriate to make a app based on this interest. My Movie List is taking the to-do app idea and putting my own twist on it. Instead of a to-do list it's a to-watch list. The user can create an account, search for movies they're intested in watching or have seen, add them to their list and give the movie a rating out of 10. The user can also filter their movies by title, genre, seen and not seen. Design is inspired by Netflix.
 
 ## Technical details
 
-This project was build with React and Material UI.
+This project was build with React, Material UI and Firebase for authentication.
 
-Rather than use Redux for handling API requests I used a custom hook for http requests. This hook also made use of a reducer and the hook was used throughout most of my containers. I decided to go with a hook rather than Redux because I wanted to use a different technique. The hook can be found <a href="https://github.com/cam71101/PodcastApp/blob/f6d09907bc2a1a214175486806292889b728a746/src/hooks/http.js#L1-L165">here</a>.
+Images and data are fetched from <a href="https://developers.themoviedb.org/3"> The Movie Database API </a>.
 
-To control the audio track I used context. This was so I wouldn't have to pass down props all the way to the audio player container. The context file is <a href="https://github.com/cam71101/PodcastApp/blob/f6d09907bc2a1a214175486806292889b728a746/src/context/audio-context.js#L1-L40"> here </a>.
+Redux was used for the handling of authentication and state managent of the movies. This included updating ratings, if the movie had been watched, removing and adding movies, if the movie is selected and clearing state. Redux seemed the best option as their quite a few containers sharing different states. You can find the reducer <a href= "https://github.com/cam71101/My-Movie-List/blob/657db207bf811fc880a3bb76e78fe08c77f75420/src/store/reducers/movies.js#L11-L108"> here </a>.
 
-Along with using the APIs I also had to fetch the RSS feeds for the podcast pages to gather more information about each episode. However, the RSS feed is only called when the user clicks on the episode to find more information. Again, using useReducer rather than having mutiple useState hooks. You can find the code <a href="https://github.com/cam71101/PodcastApp/blob/616db3f7df881b692d26d380dcbabd7123072a9b/src/containers/PodcastPage/PodcastPage.js#L119-L147"> here</a>.
+I also created a function that would cache all images upon logging into the app, as I was having issues with images loading correctly when initally logging in. This function can be found <a href="https://github.com/cam71101/My-Movie-List/blob/657db207bf811fc880a3bb76e78fe08c77f75420/src/containers/Home/Home.js#L85-L100"> here </a>.
 
-I focused heavily on unit testing when making this application, using a mixture of Jest/Enzyme and the React Testing Library. I prefer using the React Testing Library as I find it easier to use and very lightweight.
+For the search bar, I used an autocomplete component. I felt this made the App smoother, rather than having to load different pages for the movie being searched for. I created it using the help of Material UI. You can find the script <a href="https://github.com/cam71101/My-Movie-List/blob/657db207bf811fc880a3bb76e78fe08c77f75420/src/containers/Home/SearchMoviesField/SearchMoviesField.js#L62-L162"> here </a>.
 
 ## Responsive Design
 
