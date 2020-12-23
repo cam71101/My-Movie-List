@@ -274,7 +274,9 @@ export function SelectedMovie(props) {
 
         setTimeout(() => {
           setMovie(selectedMovie);
-          setFade(true);
+          setTimeout(() => {
+            setFade(true);
+          }, 200);
         }, 600);
       } else {
         setFade(false);
@@ -302,7 +304,7 @@ export function SelectedMovie(props) {
           setMovie(selectedMovie);
           setTimeout(() => {
             setFade(true);
-          }, 400);
+          }, 300);
         }, 600);
       }
     }
