@@ -20,19 +20,19 @@
 <img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608640031/MyMoveListDesktop_f2fa3c32de.gif" />
 </p>
 
-Having worked in the movie industry and also being a movie geek, it seemed appropriate to make a app based on this interest. My Movie List is taking the to-do app idea and putting my own twist on it. Instead of a to-do list it's a to-watch list. The user can create an account, search for movies they're intested in watching or have seen, add them to their list and give the movie a rating out of 10. The user can also filter their movies by title, genre, seen and not seen. Design is inspired by Netflix.
+Being a film nerd, it seemed appropriate to make an app based on movies. My Movie List is a twist on the to-do list app. Instead of a to-do list, it's a to-watch list. The user can create an account, search for movies they're interested in watching or have seen, add them to a list and give the movie a rating out of 10. The user can also filter their movies by title, genre, and if they've been watched or not. Netflix inspires design.
 
 ## Technical details
 
-This project was build with React, Material UI and Firebase for authentication.
+This project was built with React, Material UI and Firebase for authentication.
 
 Images and data are fetched from <a href="https://developers.themoviedb.org/3"> The Movie Database API </a>.
 
-Redux was used for the handling of authentication and state managent of the movies. This included updating ratings, if the movie had been watched, removing and adding movies, if the movie is selected and clearing state. Redux seemed the best option as their quite a few containers sharing different states. You can find the reducer <a href= "https://github.com/cam71101/My-Movie-List/blob/657db207bf811fc880a3bb76e78fe08c77f75420/src/store/reducers/movies.js#L11-L108"> here </a>.
+Redux was used for the handling of authentication and state management of the movies. This included updating ratings if the movie had been watched, removing and adding movies, if the movie is selected and clearing state. Redux seemed the best option as quite a few containers are sharing different states. You can find the reducer <a href= "https://github.com/cam71101/My-Movie-List/blob/657db207bf811fc880a3bb76e78fe08c77f75420/src/store/reducers/movies.js#L11-L108"> here </a>.
 
-I also created a function that would cache all images upon logging into the app, as I was having issues with images loading correctly when initally logging in. This function can be found <a href="https://github.com/cam71101/My-Movie-List/blob/657db207bf811fc880a3bb76e78fe08c77f75420/src/containers/Home/Home.js#L85-L100"> here </a>.
+I also created a function that would cache all images upon logging into the app, as I was having issues with images loading correctly when initially logging in. This function can be found <a href="https://github.com/cam71101/My-Movie-List/blob/657db207bf811fc880a3bb76e78fe08c77f75420/src/containers/Home/Home.js#L85-L100"> here </a>.
 
-For the search bar, I used an autocomplete component. I felt this made the App smoother, rather than having to load different pages for the movie being searched for. I created it using the help of Material UI. You can find the script <a href="https://github.com/cam71101/My-Movie-List/blob/657db207bf811fc880a3bb76e78fe08c77f75420/src/containers/Home/SearchMoviesField/SearchMoviesField.js#L62-L162"> here </a>.
+For the search bar, I used an autocomplete component. I felt this made the app smoother, rather than loading different searched pages. I created it using the help of Material UI. You can find the script <a href="https://github.com/cam71101/My-Movie-List/blob/657db207bf811fc880a3bb76e78fe08c77f75420/src/containers/Home/SearchMoviesField/SearchMoviesField.js#L62-L162"> here </a>.
 
 ## Responsive Design
 
@@ -61,3 +61,4 @@ npm start
 ```
 npm test
 ```
+

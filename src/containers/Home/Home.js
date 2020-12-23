@@ -64,21 +64,22 @@ export function Home(props) {
     searchedMovie,
     movies,
     modal,
+    movieChanged,
   } = props;
 
   const handleClose = () => {
     onModalToggle();
   };
 
-  const handleAdd = async () => {
+  const handleAdd = () => {
     let movie = { ...searchedMovie };
     movie.userId = userId;
+
     onAddToMovieList(movie, token);
     setSelectInput('');
   };
 
   const handleSelectChange = (e) => {
-    console.log(e);
     setSelectInput(e.target.value);
   };
 
@@ -100,25 +101,29 @@ export function Home(props) {
   };
 
   useEffect(() => {
-    (async () => {
-      try {
-        const queryParams =
-          '?auth=' + token + '&orderBy="userId"&equalTo="' + userId + '"';
+    if (movieChanged === 'first load') {
+      (async () => {
+        try {
+          const queryParams =
+            '?auth=' + token + '&orderBy="userId"&equalTo="' + userId + '"';
 
-        const response = await axios.get('/movies.json' + queryParams);
+          const response = await axios.get('/movies.json' + queryParams);
 
-        const arrayResponse = Object.entries(response.data).map((e) => {
-          e[1].key = e[0];
-          return e[1];
-        });
+          const arrayResponse = Object.entries(response.data).map((e) => {
+            e[1].key = e[0];
+            return e[1];
+          });
 
-        onSetMovieList(arrayResponse);
-        cacheImages(arrayResponse);
+          onSetMovieList(arrayResponse);
+          cacheImages(arrayResponse);
 
-        setLoading(false);
-      } catch (err) {}
-    })();
-  }, [onSetMovieList, token, userId]);
+          setTimeout(() => {
+            setLoading(false);
+          }, 700);
+        } catch (err) {}
+      })();
+    }
+  }, [onSetMovieList, token, userId, movieChanged]);
 
   let moviePoster = null;
 
@@ -183,6 +188,7 @@ const mapStateToProps = (state) => {
     userId: state.auth.userId,
     modal: state.movies.modal,
     searchedMovie: state.movies.searchedMovie,
+    movieChanged: state.movies.movieChanged,
   };
 };
 

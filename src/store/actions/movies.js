@@ -14,7 +14,29 @@ export const updateMovieModal = (movieID) => {
       const response = await fetch(
         `https://api.themoviedb.org/3/movie/${movieID}?api_key=105094d957931ab7b01705c2f3d2dd58`
       );
+
       const movieData = await response.json();
+
+      const cacheImages = async (srcArray) => {
+        const promises = await (() => {
+          return new Promise(function (resolve, reject) {
+            const img = new Image();
+            img.src = `https://image.tmdb.org/t/p/original${srcArray.backdrop_path}`;
+            img.onLoad = resolve();
+            img.onError = reject();
+
+            const imgtwo = new Image();
+            imgtwo.src = `https://image.tmdb.org/t/p/original${srcArray.poster_path}`;
+            imgtwo.onLoad = resolve();
+            imgtwo.onError = reject();
+          });
+        });
+
+        await Promise.resolve(promises);
+      };
+
+      cacheImages(movieData);
+
       dispatch(saveMovieData(movieData));
     })();
   };

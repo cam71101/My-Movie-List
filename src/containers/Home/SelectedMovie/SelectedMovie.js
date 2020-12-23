@@ -277,7 +277,33 @@ export function SelectedMovie(props) {
           setFade(true);
         }, 600);
       } else {
-        setMovie(selectedMovie);
+        setFade(false);
+
+        const cacheImages = async (srcArray) => {
+          const promises = await (() => {
+            return new Promise(function (resolve, reject) {
+              const img = new Image();
+              img.src = `https://image.tmdb.org/t/p/original${srcArray.backdrop_path}`;
+              img.onLoad = resolve();
+              img.onError = reject();
+
+              const imgtwo = new Image();
+              imgtwo.src = `https://image.tmdb.org/t/p/original${srcArray.poster_path}`;
+              imgtwo.onLoad = resolve();
+              imgtwo.onError = reject();
+            });
+          });
+
+          await Promise.resolve(promises);
+        };
+
+        cacheImages(selectedMovie);
+        setTimeout(() => {
+          setMovie(selectedMovie);
+          setTimeout(() => {
+            setFade(true);
+          }, 400);
+        }, 600);
       }
     }
   }, [selectedMovie, movieChanged, newMovie]);
