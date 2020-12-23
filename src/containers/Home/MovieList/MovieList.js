@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     marginTop: '-5rem',
     background: 'black',
-    // zIndex: 100000,
   },
   filter: {
     display: 'flex',
@@ -34,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MovieGrid = (props) => {
+const MovieList = (props) => {
   const [filterTitle, setFilterTitle] = useState('');
   const [filterGenre, setFilterGenre] = useState('');
   const [filterWatched, setFilterWatched] = useState('');
@@ -154,4 +153,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MovieGrid);
+export default connect(mapStateToProps, mapDispatchToProps)(MovieList);

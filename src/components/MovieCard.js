@@ -7,7 +7,6 @@ import Rating from '@material-ui/lab/Rating';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import { useTheme } from '@material-ui/core/styles';
-import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {

@@ -6,14 +6,10 @@ import { Typography } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Rating from '@material-ui/lab/Rating';
 import { Button } from '@material-ui/core';
-import SearchMovieField from '../SearchMoviesField/SearchMoviesField';
 import Fade from '@material-ui/core/Fade';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import { compose } from 'redux';
-import LazyLoad from 'react-lazyload';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const useStyles = makeStyles((theme) => ({
   selectedMovieRoot: {
@@ -208,7 +204,6 @@ const useStyles = makeStyles((theme) => ({
 export function SelectedMovie(props) {
   const [fade, setFade] = useState(true);
   const [movie, setMovie] = useState();
-  const [isLoading, setIsLoading] = useState(false);
 
   const classes = useStyles();
   const {
@@ -423,13 +418,7 @@ export function SelectedMovie(props) {
   return (
     <Box className={classes.black}>
       <Fade in={fade} timeout={timeout}>
-        <Box className={classes.selectedMovieRoot}>
-          {isLoading ? (
-            <CircularProgress className={classes.loading} />
-          ) : (
-            background
-          )}
-        </Box>
+        <Box className={classes.selectedMovieRoot}>{background}</Box>
       </Fade>
     </Box>
   );

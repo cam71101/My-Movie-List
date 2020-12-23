@@ -11,9 +11,11 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   let newState = { ...state };
   const selectedMovie = { ...newState.selectedMovie };
+
   const index = newState.movies.findIndex((movie) => {
     return movie.id === selectedMovie.id;
   });
+
   const movies = [...newState.movies];
 
   switch (action.type) {
