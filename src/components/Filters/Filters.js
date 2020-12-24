@@ -5,6 +5,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,7 +34,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Filters = (props) => {
+const Filters = ({
+  filterSelect,
+  filterGenre,
+  filterTitle,
+  handleTitleChange,
+  handleGenreChange,
+  handleSelectChange,
+}) => {
   const classes = useStyles();
 
   const genreItems = [
@@ -59,28 +67,33 @@ const Filters = (props) => {
   ];
 
   let filter = null;
-  if (props.filterSelect === 'title') {
+  if (filterSelect === 'title') {
     filter = (
       <TextField
         className={classes.formControl}
         id="title"
         label="Filter by Title"
-        value={props.filterTitle}
-        onChange={props.handleTitleChange}
+        value={filterTitle}
+        onChange={handleTitleChange}
       />
     );
-  } else if (props.filterSelect === 'genre') {
+  } else if (filterSelect === 'genre') {
     filter = (
       <FormControl className={classes.formControl}>
         <InputLabel id="genre">Select Genre</InputLabel>
         <Select
           labelId="genre"
           id="genre"
-          value={props.filterGenre}
-          onChange={props.handleGenreChange}
+          value={filterGenre}
+          onChange={handleGenreChange}
+          aria-label="genre"
         >
-          {genreItems.map((genre) => {
-            return <MenuItem value={genre}>{genre}</MenuItem>;
+          {genreItems.map((genre, index) => {
+            return (
+              <MenuItem value={genre} key={index}>
+                {genre}
+              </MenuItem>
+            );
           })}
         </Select>
       </FormControl>
@@ -96,8 +109,9 @@ const Filters = (props) => {
         <Select
           labelId="filter"
           id="filter"
-          value={props.filterSelect}
-          onChange={props.handleSelectChange}
+          value={filterSelect}
+          onChange={handleSelectChange}
+          aria-label="select filter"
         >
           <MenuItem value={'none'} name="none">
             None
@@ -119,6 +133,12 @@ const Filters = (props) => {
       {filter}
     </div>
   );
+};
+
+Filters.propTypes = {
+  filterSelect: PropTypes.string.isRequired,
+  handleTitleChange: PropTypes.func.isRequired,
+  handleGenreChange: PropTypes.func.isRequired,
 };
 
 export default Filters;

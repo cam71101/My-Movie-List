@@ -1,0 +1,196 @@
+[
+  {
+    "backdrop_path": "/3nYlM34QhzdtAvWRV5bN4nLtnTc.jpg",
+    "genres": [
+      { "id": 27, "name": "Horror" },
+      { "id": 53, "name": "Thriller" },
+      { "id": 12, "name": "Adventure" }
+    ],
+    "id": 578,
+    "overview": "When an insatiable great white shark terrorizes the townspeople of Amity Island, the police chief, an oceanographer and a grizzled shark hunter seek to destroy the blood-thirsty beast.",
+    "poster_path": "/s2xcqSFfT6F7ZXHxowjxfG0yisT.jpg",
+    "rating": 0,
+    "runtime": 124,
+    "tagline": "Don't go in the water",
+    "title": "Jaws",
+    "userId": "QEQpTOKQDfT8rGdUcb2zAUphKUh2",
+    "vote_average": 7.6,
+    "watched": false
+  },
+  {
+    "backdrop_path": "/77ElMccPnTMPouRxSdbJ4nEjf69.jpg",
+    "genres": [
+      { "id": 35, "name": "Comedy" },
+      { "id": 80, "name": "Crime" }
+    ],
+    "id": 115,
+    "overview": "Jeffrey 'The Dude' Lebowski, a Los Angeles slacker who only wants to bowl and drink White Russians, is mistaken for another Jeffrey Lebowski, a wheelchair-bound millionaire, and finds himself dragged into a strange series of events involving nihilists, adult film producers, ferrets, errant toes, and large sums of money.",
+    "poster_path": "/d4J7GotCjvDJBAYayZBTc5nLbbP.jpg",
+    "rating": 0,
+    "runtime": 117,
+    "tagline": "Times like these call for a Big Lebowski.",
+    "title": "The Big Lebowski",
+    "userId": "QEQpTOKQDfT8rGdUcb2zAUphKUh2",
+    "vote_average": 7.9,
+    "watched": false
+  },
+  {
+    "backdrop_path": "/tgPFZxhDuxWd4VXYaz8eAUznGTF.jpg",
+    "genres": [
+      { "id": 878, "name": "Science Fiction" },
+      { "id": 28, "name": "Action" },
+      { "id": 14, "name": "Fantasy" }
+    ],
+    "id": 415,
+    "overview": "Along with crime-fighting partner Robin and new recruit Batgirl, Batman battles the dual threat of frosty genius Mr. Freeze and homicidal horticulturalist Poison Ivy. Freeze plans to put Gotham City on ice, while Ivy tries to drive a wedge between the dynamic duo.",
+    "poster_path": "/bsg0mrxUKyJoL4oSGP5mlhEsqp.jpg",
+    "rating": 0,
+    "runtime": 125,
+    "tagline": "Strength. Courage. Honor. And loyalty.",
+    "title": "Batman & Robin",
+    "userId": "QEQpTOKQDfT8rGdUcb2zAUphKUh2",
+    "vote_average": 4.3,
+    "watched": false
+  },
+  {
+    "backdrop_path": "/bE8E4xeMfk99lK5sSnGH1TSMuNd.jpg",
+    "genres": [
+      { "id": 35, "name": "Comedy" },
+      { "id": 10770, "name": "TV Movie" }
+    ],
+    "id": 144725,
+    "overview": "Professor Evan Farnsworth is a widower who works tirelessly at a prestigious boarding school in Maine, dedicating all his time to helping his students believe in themselves. Accepting a job to teach the students left behind during Christmas vacation, including talented scholarship student Juliet, nerdy outcast Albert and privileged bad boy Drew, Farnsworth quickly faces a challenge when Drew gets into trouble. Upset his wealthy parents ditched him for a Paris skiing vacation, he takes his anger out on the neighboring town’s ancient Wishing Tree, a bare tree decorated with handwritten notes containing the townspeople’s greatest holiday wishes. A much loved tradition, it doubles as a fundraiser for needy families, depending on donations from eager wish-makers.  Drew's troublemaking eventually threatens Farnsworth's job, but with the help of the town and the special Wishing Tree, Farnsworth discovers that anything is possible.",
+    "poster_path": "/ok0WnnjdyhpnSiGLONhg22fGAdx.jpg",
+    "rating": 0,
+    "runtime": 0,
+    "tagline": "",
+    "title": "The Wishing Tree",
+    "userId": "QEQpTOKQDfT8rGdUcb2zAUphKUh2",
+    "vote_average": 6,
+    "watched": false
+  },
+  {
+    "backdrop_path": "/vRQnzOn4HjIMX4LBq9nHhFXbsSu.jpg",
+    "genres": [
+      { "id": 12, "name": "Adventure" },
+      { "id": 14, "name": "Fantasy" },
+      { "id": 28, "name": "Action" }
+    ],
+    "id": 120,
+    "overview": "Young hobbit Frodo Baggins, after inheriting a mysterious ring from his uncle Bilbo, must leave his home in order to keep it from falling into the hands of its evil creator. Along the way, a fellowship is formed to protect the ringbearer and make sure that the ring arrives at its final destination: Mt. Doom, the only place where it can be destroyed.",
+    "poster_path": "/6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg",
+    "rating": 0,
+    "runtime": 179,
+    "tagline": "One ring to rule them all",
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "userId": "QEQpTOKQDfT8rGdUcb2zAUphKUh2",
+    "vote_average": 8.3,
+    "watched": false
+  },
+  {
+    "backdrop_path": "/kwUQFeFXOOpgloMgZaadhzkbTI4.jpg",
+    "genres": [
+      { "id": 878, "name": "Science Fiction" },
+      { "id": 28, "name": "Action" },
+      { "id": 12, "name": "Adventure" }
+    ],
+    "id": 24428,
+    "overview": "When an unexpected enemy emerges and threatens global safety and security, Nick Fury, director of the international peacekeeping agency known as S.H.I.E.L.D., finds himself in need of a team to pull the world back from the brink of disaster. Spanning the globe, a daring recruitment effort begins!",
+    "poster_path": "/RYMX2wcKCBAr24UyPD7xwmjaTn.jpg",
+    "rating": 0,
+    "runtime": 143,
+    "tagline": "Some assembly required.",
+    "title": "The Avengers",
+    "userId": "QEQpTOKQDfT8rGdUcb2zAUphKUh2",
+    "vote_average": 7.7,
+    "watched": false
+  },
+  {
+    "backdrop_path": "/3SDoquTjagne0jWzdxEu31KFLmw.jpg",
+    "genres": [
+      { "id": 12, "name": "Adventure" },
+      { "id": 14, "name": "Fantasy" },
+      { "id": 28, "name": "Action" }
+    ],
+    "id": 10195,
+    "overview": "Against his father Odin's will, The Mighty Thor - a powerful but arrogant warrior god - recklessly reignites an ancient war. Thor is cast down to Earth and forced to live among humans as punishment. Once here, Thor learns what it takes to be a true hero when the most dangerous villain of his world sends the darkest forces of Asgard to invade Earth.",
+    "poster_path": "/prSfAi1xGrhLQNxVSUFh61xQ4Qy.jpg",
+    "rating": 0,
+    "runtime": 115,
+    "tagline": "Two worlds. One hero.",
+    "title": "Thor",
+    "userId": "QEQpTOKQDfT8rGdUcb2zAUphKUh2",
+    "vote_average": 6.8,
+    "watched": false
+  },
+  {
+    "backdrop_path": "/kCiMExsYuNhYluHxPP2OTmWw7hp.jpg",
+    "genres": [
+      { "id": 12, "name": "Adventure" },
+      { "id": 28, "name": "Action" }
+    ],
+    "id": 85,
+    "overview": "When Dr. Indiana Jones – the tweed-suited professor who just happens to be a celebrated archaeologist – is hired by the government to locate the legendary Ark of the Covenant, he finds himself up against the entire Nazi regime.",
+    "poster_path": "/ceG9VzoRAVGwivFU403Wc3AHRys.jpg",
+    "rating": 0,
+    "runtime": 115,
+    "tagline": "Indiana Jones - the new hero from the creators of JAWS and STAR WARS.",
+    "title": "Raiders of the Lost Ark",
+    "userId": "QEQpTOKQDfT8rGdUcb2zAUphKUh2",
+    "vote_average": 7.9,
+    "watched": false
+  },
+  {
+    "backdrop_path": "/q46nyik6GeDkUV6wQGiZQ97UuP6.jpg",
+    "genres": [
+      { "id": 27, "name": "Horror" },
+      { "id": 53, "name": "Thriller" }
+    ],
+    "id": 579,
+    "overview": "Police chief Brody must protect the citizens of Amity after a second monstrous shark begins terrorizing the waters.",
+    "poster_path": "/cN3ijEwsn4kBaRuHfcJpAQJbeWe.jpg",
+    "rating": 0,
+    "runtime": 116,
+    "tagline": "Just when you thought it was safe to go back in the water...",
+    "title": "Jaws 2",
+    "userId": "QEQpTOKQDfT8rGdUcb2zAUphKUh2",
+    "vote_average": 5.9,
+    "watched": false
+  },
+  {
+    "backdrop_path": "/vbY95t58MDArtyUXUIb8Fx1dCry.jpg",
+    "genres": [
+      { "id": 28, "name": "Action" },
+      { "id": 878, "name": "Science Fiction" },
+      { "id": 12, "name": "Adventure" }
+    ],
+    "id": 1726,
+    "overview": "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.",
+    "poster_path": "/78lPtwv72eTNqFW9COBYI0dWDJa.jpg",
+    "rating": 0,
+    "runtime": 126,
+    "tagline": "Heroes aren't born. They're built.",
+    "title": "Iron Man",
+    "userId": "QEQpTOKQDfT8rGdUcb2zAUphKUh2",
+    "vote_average": 7.6,
+    "watched": false
+  },
+  {
+    "backdrop_path": "/kZTfsQyZ1LJmuFp5bIHrXJxi5tl.jpg",
+    "genres": [
+      { "id": 10751, "name": "Family" },
+      { "id": 16, "name": "Animation" },
+      { "id": 12, "name": "Adventure" }
+    ],
+    "id": 9325,
+    "overview": "The boy Mowgli makes his way to the man-village with Bagheera, the wise panther. Along the way he meets jazzy King Louie, the hypnotic snake Kaa and the lovable, happy-go-lucky bear Baloo, who teaches Mowgli \"The Bare Necessities\" of life and the true meaning of friendship.",
+    "poster_path": "/aciy7VWE8b6AnrnpGst4g0IK8WI.jpg",
+    "rating": 0,
+    "runtime": 78,
+    "tagline": "The Jungle is JUMPIN'!",
+    "title": "The Jungle Book",
+    "userId": "QEQpTOKQDfT8rGdUcb2zAUphKUh2",
+    "vote_average": 7.3,
+    "watched": false
+  }
+]

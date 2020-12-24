@@ -6,6 +6,21 @@ import { Provider } from 'react-redux';
 import moviesReducer from './store/reducers/movies';
 import authReducer from './store/reducers/auth';
 
+import checkPropTypes from 'check-prop-types';
+
+export const findByTestAttr = (wrapper, val) =>
+  wrapper.find(`[data-test='${val}']`);
+
+export const checkProps = (component, conformingProps) => {
+  const propError = checkPropTypes(
+    component.propTypes,
+    conformingProps,
+    'prop',
+    component.name
+  );
+  expect(propError).toBeUndefined();
+};
+
 const rootReducer = combineReducers({
   movies: moviesReducer,
   auth: authReducer,

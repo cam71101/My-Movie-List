@@ -7,6 +7,7 @@ import Rating from '@material-ui/lab/Rating';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import { useTheme } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,28 +37,37 @@ const useStyles = makeStyles((theme) => ({
   title: {},
 }));
 
-export default function MediaCard(props) {
+export default function MovieCard({
+  movie,
+  title,
+  watched,
+  select,
+  poster,
+  rating,
+  remove,
+}) {
   const classes = useStyles();
   const theme = useTheme();
 
   let borderStyle;
-  props.movie.title === props.title
+
+  movie.title === title
     ? (borderStyle = { border: '.1rem solid red' })
     : (borderStyle = null);
 
   let style;
-  props.watched
+  watched
     ? (style = { backgroundColor: theme.palette.secondary.light })
     : (style = null);
 
   return (
     <Card className={classes.root}>
-      <CardActionArea onClick={props.select}>
+      <CardActionArea onClick={select}>
         <CardMedia
           className={classes.media}
-          image={`https://image.tmdb.org/t/p/w500${props.poster}`}
-          title={props.title}
-          movie={props.movie}
+          image={`https://image.tmdb.org/t/p/w500${poster}`}
+          title={title}
+          movie={movie}
           style={borderStyle}
         ></CardMedia>
       </CardActionArea>
@@ -66,16 +76,26 @@ export default function MediaCard(props) {
         <Rating
           name="rating"
           className={classes.yourRatings}
-          value={props.rating}
+          value={rating}
           precision={0.5}
           readOnly
           max={10}
           size="small"
         />
-        <Button size="small" color="default" onClick={props.remove}>
+        <Button size="small" color="default" onClick={remove}>
           Remove Movie
         </Button>
       </CardActions>
     </Card>
   );
 }
+
+MovieCard.propTypes = {
+  movie: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired,
+  watched: PropTypes.bool.isRequired,
+  select: PropTypes.func.isRequired,
+  poster: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+  remove: PropTypes.func.isRequired,
+};
