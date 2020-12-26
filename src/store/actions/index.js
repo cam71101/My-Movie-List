@@ -9,5 +9,16 @@ export {
   saveMovieData,
   modalToggle,
   clearState,
+  addMovie,
+  removeMovie,
+  updateRating,
+  watched,
 } from './movies';
-export { auth, logout, authCheckState } from './auth';
+export {
+  auth,
+  logout,
+  authCheckState,
+  authStart,
+  authSuccess,
+  authFail,
+} from './auth';

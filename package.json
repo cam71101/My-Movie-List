@@ -17,6 +17,7 @@
     "cross-fetch": "^3.0.5",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
+    "fetch-mock": "^9.11.0",
     "fontsource-roboto": "^3.0.3",
     "gh-pages": "^3.1.0",
     "material-ui-search-bar": "^1.0.0",
@@ -56,5 +57,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "redux-mock-store": "^1.5.4"
   }
 }

@@ -5,7 +5,6 @@ import '@testing-library/jest-dom/extend-expect';
 import Movielist from './MovieList';
 import movies from '../../../__mocks__/movies_response.json';
 import selectedMovie from '../../../__mocks__/selected_movie_response.json';
-import { getByRole } from '@testing-library/react';
 
 test('Renders component with movie cards', async () => {
   render(<Movielist filterSelect={'none'} />, {

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { TextField } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import * as actions from '../../store/actions/index';
 import { connect } from 'react-redux';
@@ -8,6 +7,8 @@ import { Redirect } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
 import { updateObject, generateTextInput } from '../../shared/utility';
 import logo from '../../assets/images/logo.png';
+
+import useStyles from './authStyles';
 
 const email = generateTextInput(
   'input',
@@ -29,41 +30,6 @@ const password = generateTextInput(
   6,
   20
 );
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    height: '100vh',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  card: {
-    minWidth: 275,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    opacity: 0.9,
-  },
-  logo: {
-    marginBottom: '-2rem',
-    marginTop: '-2rem',
-  },
-  form: {
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      width: 200,
-    },
-  },
-  formContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  signInUp: {
-    marginTop: '1rem',
-    marginBottom: '1rem',
-  },
-}));
 
 const Auth = (props) => {
   const [controls, setControls] = useState({
