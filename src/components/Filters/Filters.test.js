@@ -31,7 +31,7 @@ test('It should call handleTitleChange function', () => {
   expect(handleTitleChange).toHaveBeenCalled();
 });
 
-test('Dropdown should have genre and action', () => {
+test('Dropdown should have genre ', () => {
   setup('genre', 'Action');
   const filter = screen.getByLabelText('genre');
   expect(filter).toBeInTheDocument();

@@ -9,6 +9,7 @@ import Rating from '@material-ui/lab/Rating';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import CancelIcon from '@material-ui/icons/Cancel';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -148,10 +149,11 @@ const PosterModalCard = (props) => {
         color="secondary"
         className={classes.close}
         fontSize={matches ? 'medium' : 'large'}
+        aria-label="close button"
       />
 
       {/* {posterText} */}
-      <div className={classes.details}>
+      <div className={classes.details} aria-label="modal-root">
         <CardContent className={classes.content}>
           <div className={classes.tagline}>
             <Typography
@@ -244,6 +246,19 @@ const PosterModalCard = (props) => {
       ) : null}
     </Card>
   );
+};
+
+PosterModalCard.propTypes = {
+  genres: PropTypes.array.isRequired,
+  moviePoster: PropTypes.string.isRequired,
+  checkMovieAdded: PropTypes.bool.isRequired,
+  close: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  tagline: PropTypes.string.isRequired,
+  overview: PropTypes.string.isRequired,
+  runTime: PropTypes.string.isRequired,
+  voteAverage: PropTypes.number.isRequired,
+  addMovie: PropTypes.func.isRequired,
 };
 
 export default PosterModalCard;

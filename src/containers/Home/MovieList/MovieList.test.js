@@ -16,7 +16,6 @@ test('Renders component with movie cards', async () => {
       },
     },
   });
-
   screen.getAllByRole('button');
 });
 

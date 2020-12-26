@@ -8,7 +8,7 @@ import * as actions from '../../store/actions/index';
 import axios from '../../axios-movie-data';
 import { connect } from 'react-redux';
 import withErrorHandler from '../../hoc/withErrorHandler';
-import PosterModalCard from '../../components/PosterModalCard';
+import PosterModalCard from '../../components/PosterModalCard/PosterModalCard';
 import { compose } from 'redux';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import SearchMoviesField from './SearchMoviesField/SearchMoviesField';
