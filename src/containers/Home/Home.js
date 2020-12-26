@@ -1,55 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import NavBar from './UI/NavBar';
-import TransitionModal from '../../components/TransitionModal';
-import MovieList from './MovieList/MovieList';
-import { makeStyles } from '@material-ui/core/styles';
-import SelectedMovie from './SelectedMovie/SelectedMovie';
-import * as actions from '../../store/actions/index';
 import axios from '../../axios-movie-data';
 import { connect } from 'react-redux';
-import withErrorHandler from '../../hoc/withErrorHandler';
-import PosterModalCard from '../../components/PosterModalCard/PosterModalCard';
 import { compose } from 'redux';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import SearchMoviesField from './SearchMoviesField/SearchMoviesField';
 
-const useStyles = makeStyles((theme) => ({
-  rootHome: {
-    display: 'flex',
-    flexDirection: 'column',
-    position: 'relative',
-  },
-  loading: {
-    width: '100%',
-    height: '80rem',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  wheel: {
-    height: '20rem',
-    width: '20rem',
-  },
-  searchContainer: {
-    position: 'absolute',
-    top: 26,
-    left: 0,
-    right: 0,
-    margin: 'auto',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    [theme.breakpoints.down('md')]: {
-      top: 25,
-    },
-    [theme.breakpoints.down('sm')]: {
-      top: 20,
-    },
-    [theme.breakpoints.down('xs')]: {
-      top: 80,
-    },
-  },
-}));
+import SearchMoviesField from './SearchMoviesField/SearchMoviesField';
+import useStyles from './homeStyles';
+import withErrorHandler from '../../hoc/withErrorHandler';
+import PosterModalCard from '../../components/PosterModalCard/PosterModalCard';
+import SelectedMovie from './SelectedMovie/SelectedMovie';
+import NavBar from './UI/NavBar';
+import TransitionModal from '../../components/TransitionModal/TransitionModal';
+import MovieList from './MovieList/MovieList';
+import * as actions from '../../store/actions/index';
 
 export function Home(props) {
   const [loading, setLoading] = useState(true);

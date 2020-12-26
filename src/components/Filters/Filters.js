@@ -1,5 +1,4 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { TextField } from '@material-ui/core';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -7,32 +6,7 @@ import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import PropTypes from 'prop-types';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    alignItems: 'center',
-    flexGrow: 1,
-    marginTop: '2.5rem',
-  },
-  filter: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'flex-end',
-    [theme.breakpoints.down('lg')]: {
-      marginTop: '2rem',
-    },
-  },
-  gridContainer: {
-    flexGrow: 1,
-    marginTop: '2.5rem',
-  },
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-  },
-}));
+import useStyles from './filtersStyles';
 
 const Filters = ({
   filterSelect,

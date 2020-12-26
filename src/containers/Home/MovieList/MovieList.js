@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+
 import Grid from '@material-ui/core/Grid';
 import * as actions from '../../../store/actions/index';
 import { connect } from 'react-redux';
@@ -8,30 +8,7 @@ import Box from '@material-ui/core/Box';
 import Filters from '../../../components/Filters/Filters';
 import Grow from '@material-ui/core/Grow';
 
-const useStyles = makeStyles((theme) => ({
-  rootMovieList: {
-    display: 'flex',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    alignItems: 'center',
-    flexGrow: 1,
-    marginTop: '-5rem',
-    background: 'black',
-  },
-  filter: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'flex-end',
-  },
-  gridContainer: {
-    flexGrow: 1,
-    marginTop: '1rem',
-  },
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-  },
-}));
+import useStyles from './movieListStyles';
 
 const MovieList = (props) => {
   const [filterTitle, setFilterTitle] = useState('');

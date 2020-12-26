@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Modal from '../components/TransitionModal';
+import Modal from '../components/TransitionModal/TransitionModal';
 import useHttpErrorHandler from '../hooks/http-error-handler';
 
 const withErrorHandler = (WrappedComponent, axios) => {
