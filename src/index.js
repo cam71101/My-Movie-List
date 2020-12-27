@@ -28,7 +28,7 @@ const logger = (store) => {
   };
 };
 
-const store = createStore(
+export const store = createStore(
   rootReducer,
   composeEnhancers(applyMiddleware(logger, ReduxThunk))
 );

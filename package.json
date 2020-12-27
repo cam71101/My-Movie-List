@@ -12,6 +12,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "@types/react-transition-group": "^4.4.0",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
     "axios": "^0.20.0",
     "check-prop-types": "^1.1.2",
     "cross-fetch": "^3.0.5",

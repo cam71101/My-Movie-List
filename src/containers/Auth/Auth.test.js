@@ -1,40 +1,27 @@
 import React from 'react';
-import { render, fireEvent, screen, storeFactory } from '../../test-utils';
+import {
+  render,
+  fireEvent,
+  screen,
+  storeFactory,
+  findByTestAttr,
+} from '../../test-utils';
 import '@testing-library/jest-dom/extend-expect';
 import Enzyme, { shallow, mount } from 'enzyme';
-import EnzymeAdapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { Provider } from 'react-redux';
 
 import Auth from './Auth';
+import { auth } from '../../store/actions/index';
+import * as types from '../../store/actions/actionTypes';
 
 const click = { button: 0 };
 const onAuth = jest.fn();
 
-Enzyme.configure({
-  adapter: new EnzymeAdapter(),
-});
+Enzyme.configure({ adapter: new Adapter() });
 
 const setup = () => {
   return render(<Auth onAuth={onAuth} />);
-};
-
-const thunk = ({ dispatch, getState }) => (next) => (action) => {
-  if (typeof action === 'function') {
-    return action(dispatch, getState);
-  }
-  return next(action);
-};
-
-const create = () => {
-  const store = {
-    getState: jest.fn(() => ({})),
-    dispatch: jest.fn(),
-  };
-  const next = jest.fn();
-
-  const invoke = (action) => thunk(store)(next)(action);
-
-  return { store, next, invoke };
 };
 
 test('Button changes to the signup form', () => {
@@ -47,18 +34,45 @@ test('Button changes to the signup form', () => {
   expect(screen.getByRole('button', { name: /SIGNUP/i })).toBeInTheDocument();
 });
 
-test('Button changes to the signup form', () => {
-  // const { invoke } = create();
-  // const onAuth = jest.fn();
-  // invoke(onAuth);
-  // expect(onAuth).toHaveBeenCalled();
-  // setup();
-  // const loginBtn = screen.getByRole('button', { name: /login/i });
-  // fireEvent.click(loginBtn, click);
-  const store = storeFactory({});
-  const onAuth = jest.fn();
-  const wrapper = shallow(<Auth store={store} onAuth={onAuth} />)
-    .dive()
-    .dive();
-  console.log(wrapper.debug());
-});
+// test('Button changes to the signup form', () => {
+//   const onAuth = jest.fn();
+//   const error = {
+//     data: {
+//       error: {
+//         message: 'error',
+//       },
+//     },
+//   };
+//   const store = storeFactory({
+//     auth: {
+//       error: error,
+//     },
+//   });
+
+//   const wrapper = shallow(<Auth store={store} onAuth={onAuth} />)
+//     .dive()
+//     .dive();
+
+//   const button = findByTestAttr(wrapper, 'button');
+//   button.simulate('click', { preventDefault() {} });
+
+// expect(onAuth).toHaveBeenCalled();
+
+// const errorProp = wrapper.instance().props.error;
+
+// console.log(errorProp);
+
+// store.dispatch(auth('test@test.com', 'happy123', false));
+// const newState = store.getState();
+// const expectedState = {
+//   auth: { error: null, loading: true, token: null, userId: null },
+//   movies: {
+//     modal: false,
+//     movies: [],
+//     movieChanged: 'first load',
+//     newMovie: false,
+//   },
+// };
+
+// expect(newState).toEqual(expectedState);
+// });

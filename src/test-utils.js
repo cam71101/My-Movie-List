@@ -1,20 +1,17 @@
 // test-utils.js
 import React from 'react';
 import { render as rtlRender } from '@testing-library/react';
-import { createStore, combineReducers } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import moviesReducer from './store/reducers/movies';
-import authReducer from './store/reducers/auth';
 
 import checkPropTypes from 'check-prop-types';
-
-const rootReducer = combineReducers({
-  movies: moviesReducer,
-  auth: authReducer,
-});
+import { middlewares, rootReducer } from './configureStore';
 
 export const storeFactory = (initialState) => {
-  return createStore(rootReducer, initialState);
+  const createStoreWithMiddleware = applyMiddleware(...middlewares)(
+    createStore
+  );
+  return createStoreWithMiddleware(rootReducer, initialState);
 };
 
 export const findByTestAttr = (wrapper, val) =>

@@ -140,6 +140,7 @@ const Auth = (props) => {
               variant="contained"
               color={isSignup ? 'primary' : 'secondary'}
               onClick={submitHandler}
+              data-test="button"
             >
               {isSignup ? 'SIGNUP' : 'LOGIN'}
             </Button>
