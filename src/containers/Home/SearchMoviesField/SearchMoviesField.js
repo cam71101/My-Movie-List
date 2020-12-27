@@ -9,7 +9,7 @@ import * as actions from '../../../store/actions/index';
 
 import useStyles from './searchMoviesFieldStyles';
 
-const SearchMoviesBar = (props) => {
+const SearchMoviesField = (props) => {
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState([]);
   const [input, setInput] = useState();
@@ -119,4 +119,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(SearchMoviesBar);
+export default connect(null, mapDispatchToProps)(SearchMoviesField);

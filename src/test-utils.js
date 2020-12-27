@@ -8,6 +8,15 @@ import authReducer from './store/reducers/auth';
 
 import checkPropTypes from 'check-prop-types';
 
+const rootReducer = combineReducers({
+  movies: moviesReducer,
+  auth: authReducer,
+});
+
+export const storeFactory = (initialState) => {
+  return createStore(rootReducer, initialState);
+};
+
 export const findByTestAttr = (wrapper, val) =>
   wrapper.find(`[data-test='${val}']`);
 
@@ -20,11 +29,6 @@ export const checkProps = (component, conformingProps) => {
   );
   expect(propError).toBeUndefined();
 };
-
-const rootReducer = combineReducers({
-  movies: moviesReducer,
-  auth: authReducer,
-});
 
 function render(
   ui,

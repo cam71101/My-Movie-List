@@ -1,20 +1,23 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import * as actions from '../../../store/actions/index';
-import logo from '../../../assets/images/logo.png';
 import Fade from '@material-ui/core/Fade';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
-import { compose } from 'redux';
 
 import useStyles from './navBarStyles';
+import logo from '../../assets/images/logo.png';
 
-export function NavBar(props) {
+export const LocationDisplay = () => {
+  const location = useLocation();
+
+  return <div data-testid="location-display">{location.pathname}</div>;
+};
+
+export function NavBar() {
   const classes = useStyles();
 
   const theme = useTheme();
@@ -41,17 +44,3 @@ export function NavBar(props) {
     </Fade>
   );
 }
-
-const mapStateToProps = (state) => {
-  return {
-    selectedMovie: state.movies.selectedMovie,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onLogout: () => dispatch(actions.logout()),
-  };
-};
-
-export default compose(connect(mapStateToProps, mapDispatchToProps))(NavBar);

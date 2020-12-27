@@ -9,7 +9,7 @@ import useStyles from './homeStyles';
 import withErrorHandler from '../../hoc/withErrorHandler';
 import PosterModalCard from '../../components/PosterModalCard/PosterModalCard';
 import SelectedMovie from './SelectedMovie/SelectedMovie';
-import NavBar from './UI/NavBar';
+import { NavBar } from '../../components/NavBar/NavBar';
 import TransitionModal from '../../components/TransitionModal/TransitionModal';
 import MovieList from './MovieList/MovieList';
 import * as actions from '../../store/actions/index';
