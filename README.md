@@ -49,6 +49,13 @@ For the search bar, I used an autocomplete component. I felt this made the app s
 - Mark if watched or not
 - Filter movies by name, genre, watched or not watched
 
+## Future Features
+
+- The ability for users to write reviews against the movies
+- Additional info such as the actors in the movie
+- Links to the IMDB profile of the actors
+- Embedded trailers
+
 ## Project setup
 
 ```
@@ -61,4 +68,3 @@ npm start
 ```
 npm test
 ```
-
