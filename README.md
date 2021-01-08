@@ -46,7 +46,9 @@ Being a film nerd, it seemed appropriate to make an app based on movies. My Movi
 
 ## Technical details
 
-##### Redux Action Auth Function
+#### Redux Action Auth Function
+
+Redux action function used for handling if the user is authorised or checks the user's password if they're signing up. It also logs their token in the local storage and automatically removes the data after an hour. Full script can be found <a href= "https://github.com/cam71101/My-Movie-List/blob/a5525115ab3b2cf7b3eac7abdb410d4921e39cfe/src/store/actions/auth.js#L42-L72"> here. </a>
 
 ```javascript
 export const auth = (email, password, isSignup) => {
@@ -82,7 +84,9 @@ export const auth = (email, password, isSignup) => {
 };
 ```
 
-Redux action function used for handling if the user is authorised or checks the user's password if they're signing up. It also logs their token in the local storage and automatically removes the data after an hour. Full script can be found <a href= "https://github.com/cam71101/My-Movie-List/blob/a5525115ab3b2cf7b3eac7abdb410d4921e39cfe/src/store/actions/auth.js#L42-L72"> here. </a>
+#### Cache Images Function
+
+This function was used to cache all images once the user had logged in, which stopped some buggy UI transitions. Full script can be found <a href= "https://github.com/cam71101/My-Movie-List/blob/657db207bf811fc880a3bb76e78fe08c77f75420/src/containers/Home/Home.js#L85-L100"> here. </a
 
 ```javascript
 const cacheImages = async (srcArray) => {
@@ -102,8 +106,6 @@ const cacheImages = async (srcArray) => {
   await Promise.all(promises);
 };
 ```
-
-This function was used to cache all images once the user had logged in, which stopped some buggy UI transitions. Full script can be found <a href= "https://github.com/cam71101/My-Movie-List/blob/657db207bf811fc880a3bb76e78fe08c77f75420/src/containers/Home/Home.js#L85-L100"> here. </a
 
 ## Responsive Design
 
