@@ -20,9 +20,67 @@
 <img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608640031/MyMoveListDesktop_f2fa3c32de.gif" />
 </p>
 
+<h2 align="center"><a  href="https://d-fisher.com/my-movie-list">CLICK HERE FOR FULL PROJECT BREAKDOWN</a></h2>
+
 Being a film nerd, it seemed appropriate to make an app based on movies. My Movie List is a twist on the to-do list app. Instead of a to-do list, it's a to-watch list. The user can create an account, search for movies they're interested in watching or have seen, add them to a list and give the movie a rating out of 10. The user can also filter their movies by title, genre, and if they've been watched or not. Netflix inspires design.
 
+## Tecnologies Used
+
+- React & Javascript
+- Redux
+- Firebase
+- Material UI
+- Docker
+- Jest/Enzyme
+- React Testing Library
+- Git & Github
+
+## Main Features
+
+- Auto complete search
+- Authentication
+- Add favourite movies to a list
+- Rate the movies
+- Mark if watched or not
+- Filter movies by name, genre, watched or not watched
+
 ## Technical details
+
+Redux action function used for handling if the user is authorised or checks the user's password if they're signing up. It also logs their token in the local storage and automatically removes the data after an hour. Full script can be found <a href= "https://github.com/cam71101/My-Movie-List/blob/a5525115ab3b2cf7b3eac7abdb410d4921e39cfe/src/store/actions/auth.js#L42-L72"> here </a>.
+
+```javascript
+export const auth = (email, password, isSignup) => {
+  return (dispatch) => {
+    dispatch(authStart());
+    const authData = {
+      email: email,
+      password: password,
+      returnSecureToken: true,
+    };
+
+    let url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDMF4MLFrGLwT2dxvn_070wiDQe9GiW0Pk`;
+    if (!isSignup) {
+      url =
+        'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyDMF4MLFrGLwT2dxvn_070wiDQe9GiW0Pk';
+    }
+    axios
+      .post(url, authData)
+      .then((response) => {
+        const expirationDate = new Date(
+          new Date().getTime() + response.data.expiresIn * 1000
+        );
+        localStorage.setItem('token', response.data.idToken);
+        localStorage.setItem('expirationDate', expirationDate);
+        localStorage.setItem('userId', response.data.localId);
+        dispatch(authSuccess(response.data.idToken, response.data.localId));
+        dispatch(checkAuthTimeout(response.data.expiresIn));
+      })
+      .catch((err) => {
+        dispatch(authFail(err.response));
+      });
+  };
+};
+```
 
 This project was built with React, Material UI and Firebase for authentication.
 
@@ -39,15 +97,6 @@ For the search bar, I used an autocomplete component. I felt this made the app s
 <p align="center">
 <img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608643280/MyMoveListResponsive_e556aab736.gif" />
 </p>
-
-## Main Features
-
-- Auto complete search
-- Authentication
-- Add favourite movies to a list
-- Rate the movies
-- Mark if watched or not
-- Filter movies by name, genre, watched or not watched
 
 ## Future Features
 
