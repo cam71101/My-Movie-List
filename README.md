@@ -46,7 +46,7 @@ Being a film nerd, it seemed appropriate to make an app based on movies. My Movi
 
 ## Technical details
 
-Redux action function used for handling if the user is authorised or checks the user's password if they're signing up. It also logs their token in the local storage and automatically removes the data after an hour. Full script can be found <a href= "https://github.com/cam71101/My-Movie-List/blob/a5525115ab3b2cf7b3eac7abdb410d4921e39cfe/src/store/actions/auth.js#L42-L72"> here </a>.
+Redux action function used for handling if the user is authorised or checks the user's password if they're signing up. It also logs their token in the local storage and automatically removes the data after an hour. Full script can be found <a href= "https://github.com/cam71101/My-Movie-List/blob/a5525115ab3b2cf7b3eac7abdb410d4921e39cfe/src/store/actions/auth.js#L42-L72"> here. </a>
 
 ```javascript
 export const auth = (email, password, isSignup) => {
@@ -82,15 +82,26 @@ export const auth = (email, password, isSignup) => {
 };
 ```
 
-This project was built with React, Material UI and Firebase for authentication.
+This function was used to cache all images once the user had logged in, which stopped some buggy UI transitions. Full script can be found <a href= "https://github.com/cam71101/My-Movie-List/blob/657db207bf811fc880a3bb76e78fe08c77f75420/src/containers/Home/Home.js#L85-L100"> here. </a>
 
-Images and data are fetched from <a href="https://developers.themoviedb.org/3"> The Movie Database API </a>.
+```javascript
+const cacheImages = async (srcArray) => {
+  const promises = await srcArray.map((src) => {
+    return new Promise(function (resolve, reject) {
+      const img = new Image();
+      img.src = `https://image.tmdb.org/t/p/original${src.backdrop_path}`;
+      img.onLoad = resolve();
+      img.onError = reject();
 
-Redux was used for the handling of authentication and state management of the movies. This included updating ratings if the movie had been watched, removing and adding movies, if the movie is selected and clearing state. Redux seemed the best option as quite a few containers are sharing different states. You can find the reducer <a href= "https://github.com/cam71101/My-Movie-List/blob/657db207bf811fc880a3bb76e78fe08c77f75420/src/store/reducers/movies.js#L11-L108"> here </a>.
-
-I also created a function that would cache all images upon logging into the app, as I was having issues with images loading correctly when initially logging in. This function can be found <a href="https://github.com/cam71101/My-Movie-List/blob/657db207bf811fc880a3bb76e78fe08c77f75420/src/containers/Home/Home.js#L85-L100"> here </a>.
-
-For the search bar, I used an autocomplete component. I felt this made the app smoother, rather than loading different searched pages. I created it using the help of Material UI. You can find the script <a href="https://github.com/cam71101/My-Movie-List/blob/657db207bf811fc880a3bb76e78fe08c77f75420/src/containers/Home/SearchMoviesField/SearchMoviesField.js#L62-L162"> here </a>.
+      const imgtwo = new Image();
+      imgtwo.src = `https://image.tmdb.org/t/p/original${src.poster_path}`;
+      imgtwo.onLoad = resolve();
+      imgtwo.onError = reject();
+    });
+  });
+  await Promise.all(promises);
+};
+```
 
 ## Responsive Design
 
