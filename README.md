@@ -82,8 +82,6 @@ export const auth = (email, password, isSignup) => {
 };
 ```
 
->
-
 ##### Redux Action Auth Function
 
 ```javascript
