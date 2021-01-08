@@ -82,7 +82,9 @@ export const auth = (email, password, isSignup) => {
 };
 ```
 
-This function was used to cache all images once the user had logged in, which stopped some buggy UI transitions. Full script can be found <a href= "https://github.com/cam71101/My-Movie-List/blob/657db207bf811fc880a3bb76e78fe08c77f75420/src/containers/Home/Home.js#L85-L100"> here. </a>
+>
+
+##### Redux Action Auth Function
 
 ```javascript
 const cacheImages = async (srcArray) => {
@@ -102,6 +104,8 @@ const cacheImages = async (srcArray) => {
   await Promise.all(promises);
 };
 ```
+
+This function was used to cache all images once the user had logged in, which stopped some buggy UI transitions. Full script can be found <a href= "https://github.com/cam71101/My-Movie-List/blob/657db207bf811fc880a3bb76e78fe08c77f75420/src/containers/Home/Home.js#L85-L100"> here. </a
 
 ## Responsive Design
 
