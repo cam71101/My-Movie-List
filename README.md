@@ -82,7 +82,7 @@ export const auth = (email, password, isSignup) => {
 };
 ```
 
-##### Redux Action Auth Function
+### Redux Action Auth Function
 
 ```javascript
 const cacheImages = async (srcArray) => {
