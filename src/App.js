@@ -28,14 +28,7 @@ function App(props) {
     routes = (
       <BrowserRouter>
         <Route path="/" exact component={Auth} />
-        <Route
-          path="/My-Movie-List"
-          render={() => (
-            <Suspense fallback={<div>loading...</div>}>
-              <Home />
-            </Suspense>
-          )}
-        />
+        <Route path="/My-Movie-List" render={() => <Home />} />
         <Route path="/logout" exact component={Logout} />
       </BrowserRouter>
     );
