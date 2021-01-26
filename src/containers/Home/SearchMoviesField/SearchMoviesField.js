@@ -37,7 +37,6 @@ const SearchMoviesField = (props) => {
         alert(err);
       }
     })();
-
     return () => {
       active = false;
     };
@@ -85,26 +84,28 @@ const SearchMoviesField = (props) => {
           getOptionLabel={(option) => option.title}
           options={options}
           loading={loading}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              label="Search movies..."
-              variant="outlined"
-              onChange={handleChange}
-              value={input}
-              InputProps={{
-                ...params.InputProps,
-                endAdornment: (
-                  <React.Fragment>
-                    {loading ? (
-                      <CircularProgress color="inherit" size={20} />
-                    ) : null}
-                    {params.InputProps.endAdornment}
-                  </React.Fragment>
-                ),
-              }}
-            />
-          )}
+          renderInput={(params) => {
+            return (
+              <TextField
+                {...params}
+                label={'Search movies...'}
+                variant="outlined"
+                onChange={handleChange}
+                value={input}
+                InputProps={{
+                  ...params.InputProps,
+                  endAdornment: (
+                    <React.Fragment>
+                      {loading ? (
+                        <CircularProgress color="inherit" size={20} />
+                      ) : null}
+                      {params.InputProps.endAdornment}
+                    </React.Fragment>
+                  ),
+                }}
+              />
+            );
+          }}
         />
       </form>
     </div>

@@ -121,6 +121,7 @@ export function Home(props) {
           handleSelect={(e) => handleSelectChange(e)}
           filterSelect={selectInput}
         />
+
         {searchedMovie ? (
           <TransitionModal modal={modal} close={handleClose}>
             <PosterModalCard
